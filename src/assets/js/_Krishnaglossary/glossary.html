@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Glossary</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/glossary.css" />
+</head>
+
+<body>
+    <script src="js/jquery-1.12.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/glossary.js"></script>
+    <div class="glossary">
+    	
+    </div>
+    <div class="glossary2">
+    	
+    </div>
+    <script type="text/javascript">
+    	$('.glossary').klossary({
+    		dataPath:'data/dry_skin_serum.json',
+    		selectBoxClass:'customClass',
+    		onselectChange:function () {
+    			 // alert("hellow");
+    		},
+    		onResultsChange:function () {
+    			 // alert("rs");
+    		}
+    	});
+    	$('.glossary2').klossary({
+    		dataPath:'data/eye_serum.json',
+    		selectBoxClass:'customClass',
+    		onselectChange:function () {
+    			 // alert("hellow");
+    		},
+    		onResultsChange:function () {
+    			 // alert("rs");
+    		}
+    	});
+    </script>
+</body>
+
+</html>

@@ -1,19 +1,24 @@
-{{!-- This is the base layout for your project, and will be used on every page. --}}
-
 <!doctype html>
 <html class="no-js" lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Foundation for Sites</title>
-    <link rel="stylesheet" href="{{root}}assets/css/app.css">
-  </head>
-  <body>
+    <title>Juju Skincare</title>
+    <link rel="stylesheet" href="{{root}}assets/css/juju.css">
+    <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
+</head>
 
-    {{!-- Pages you create in the src/pages/ folder are inserted here when the flattened page is created. --}}
-    {{> body}}
+<body>
+{{> loader}}
+    <div id="site-container" style="display: none;">
+        {{> topbar}}
+        {{> body}}
+    </div>
+        {{> footer}}
+        <!-- {{> offcanvas}} -->
+    <script src="{{root}}assets/js/juju.js"></script>
+</body>
 
-    <script src="{{root}}assets/js/app.js"></script>
-  </body>
 </html>

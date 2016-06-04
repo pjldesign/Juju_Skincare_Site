@@ -15,8 +15,23 @@
     "tests"
   ],
   "dependencies": {
-    "foundation-sites": "~6.0.0",
-    "motion-ui": "~1.1.0"
+    "foundation-sites": "^6.2.0",
+    "motion-ui": "^1.2.2",
+    "imagesloaded": "^4.1.0",
+    "mediaCheck": "^0.4.6",
+    "jQuery-menu-aim": "*",
+    "adaptive.background": "^1.0.3",
+    "jquery-pjax": "latest",
+    "spf": "^2.3.2"
   },
-  "private": true
+  "private": true,
+  "resolutions": {
+    "foundation-sites": "^6.2.0",
+    "jquery": "~2.2.0",
+    "motion-ui": "^1.2.2",
+    "what-input": "^2.0.1"
+  },
+  "devDependencies": {
+    "background-check": "^1.2.2"
+  }
 }

@@ -1,0 +1,55 @@
+{
+    "data": [{
+        "title": "Acacia Gum (Acacia Senegal)",
+        "desc": "A natural exudate of the stem and branches of the African acacia tree which can be induced by incising the bark. It hardens to a beautiful translucent amber which is ground and used as a thickener with emulsifying properties. Acacia gum harvest and trade is an old activity which supports local livelihoods and contributes to sustainable development.",
+        "type": "text"
+    }, {
+        "title": "Adansonia Digitata (Baobab) Seed Oil",
+        "desc": "Organic oil cold-pressed from seeds with no solvent or chemicals used, filtered and centrifuged to purify. The oil absorbs well, due to its high percentage of oleic acid. It is high in linoleic acid, a fatty acid component of cell membranes essential for good health. The sterol portion of the oil is high in β-Sitosterol which has been shown to have anti-inflammatory and anti-microbial properties in combination with fatty acids.",
+        "type": "text"
+    }, {
+        "title": "Citric Acid",
+        "desc": "A naturally occurring fruit acid, produced commercially by microbial fermentation of a carbohydrate substrate. It is a weak alpha hydroxyl acid used commonly to adjust pH. It also has mild chelating properties which aids in preservation.",
+        "type": "text"
+    }, {
+        "title": "Cocoglucosides",
+        "desc": "Sugar based surfactants which provide gentle cleaning without stripping the natural oils from the skin.",
+        "type": "text"
+    }, {
+        "title": "Decyl Glucoside",
+        "desc": "Sugar based surfactants which provide gentle cleaning without stripping the natural oils from the skin.",
+        "type": "text"
+    }, {
+        "title": "Glucose, Sodium Thiocyanate, Potassium Iodide and Glucose Oxidase, Lactoperoxidase",
+        "desc": "Components of an enzyme system which mimics a naturally occurring anti-microbial/anti-oxidant protection system. Glucose oxidase is an enzyme which acts on the substrate glucose in the presence of oxygen to generate hydrogen peroxide (H₂O₂), a byproduct of oxidative metabolism which is naturally produced and broken down in most living things. H₂O₂ is used by the lactoperoxidase enzyme to catalyze the oxidation of I- and SCN- anions, forming hypoiodite and hypothiocyanite which have anti-microbial activity. The result is rapid microbial cell death.",
+        "type": "text"
+    }, {
+        "title": "Glycerin",
+        "desc": "A water soluble and hygroscopic compound produced when a triglyceride is broken down to fatty acids. It is an excellent humectant, having the ability to attract and hold water molecules. Only vegetable based glycerin is used.",
+        "type": "text"
+    }, {
+        "title": "Lactic Acid",
+        "desc": "Lactic acid and citric acid are produced by a natural fermentation process. As bioavailable alpha hydroxy acids, they improve skin texture, and adjust pH to a level that helps the skin pores tighten.",
+        "type": "text"
+    }, {
+        "title": "Leuconostoc/Radish Root Ferment Filtrate",
+        "desc": "A preservative based on an anti-microbial peptide originally derived from the lactic acid bacteria, Leuconostoc kimchii. L. kimchii restricts the growth of other microorganisms by acidifying its environment, and produces a novel anti-microbial peptide as a second mechanism of defense.",
+        "type": "text"
+    }, {
+        "title": "Natural Moisturizing Factors (NMFs): Sodium PCA, Sodium Lactate, Arginine, Aspartic Acid, PCA, Glycine, Alanine, Serine, Valine, Proline, Threonine, Isoleucine, Histidine, and Phenylalanine",
+        "desc": "This blend of NMFs are naturally found in the intercellular spaces of the epidermis, and function to hold water in the skin. These NMFs are lost with daily cleansing but studies have shown that they can be replaced when added to lotions or creams.",
+        "type": "text"
+    }, {
+        "title": "Sodium Cocoyl Oat Amino Acids",
+        "desc": "A surfactant based on oats. This is a very mild cleanser with excellent foaming properties which also moisturizes the skin.",
+        "type": "text"
+    }, {
+        "title": "Sodium Lauroyl Lactylate",
+        "desc": "A food grade emulsifier which helps suspend the oil in the cleanser.",
+        "type": "text"
+    }, {
+        "title": "Xanthan Gum",
+        "desc": "A natural thickener and the only ingredient added to the Eye Serum that does not have a significant function on the skin.",
+        "type": "text"
+    }]
+}

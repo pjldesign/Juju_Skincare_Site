@@ -6,6 +6,7 @@ var panini   = require('panini');
 var rimraf   = require('rimraf');
 var sequence = require('run-sequence');
 var sherpa   = require('style-sherpa');
+// var strip    = require('gulp-stripbom')
 
 // Check for --production flag
 var isProduction = !!(argv.production);
@@ -27,11 +28,12 @@ var PATHS = {
     'bower_components/motion-ui/src/'
   ],
   javascript: [
-    'bower_components/jquery/dist/jquery.js',
+    // 'bower_components/spf/dist/spf.js',
+    'bower_components/jquery-pjax/jquery.pjax.js',
     'bower_components/what-input/what-input.js',
     'bower_components/foundation-sites/js/foundation.core.js',
+    'bower_components/foundation-sites/js/foundation.util.mediaQuery.js',
     'bower_components/foundation-sites/js/foundation.util.*.js',
-    // Paths to individual JS components defined below
     'bower_components/foundation-sites/js/foundation.abide.js',
     'bower_components/foundation-sites/js/foundation.accordion.js',
     'bower_components/foundation-sites/js/foundation.accordionMenu.js',
@@ -51,9 +53,39 @@ var PATHS = {
     'bower_components/foundation-sites/js/foundation.tabs.js',
     'bower_components/foundation-sites/js/foundation.toggler.js',
     'bower_components/foundation-sites/js/foundation.tooltip.js',
-    'src/assets/js/**/*.js',
-    'src/assets/js/app.js'
+    'bower_components/jQuery.mmenu/dist/js/jquery.mmenu.all.min.js',
+    'bower_components/skrollr/dist/skrollr.min.js',
+    'bower_components/skrollr-menu/dist/skrollr.menu.min.js',
+    'bower_components/custom-select-menu/custom-select-menu.jquery.js',
+    'bower_components/mediaCheck/js/mediaCheck-min.js',
+    'bower_components/background-check/background-check.min.js',
+    'src/assets/js/_colourBrightness.js-master/jquery.colourbrightness.min.js',
+    'bower_components/Scrollify/jquery.scrollify.min.js',
+    'src/assets/js/_new-rs-9.5.7/royalslider/jquery.royalslider.custom.min.js',
+    'src/assets/js/juju.js',
+    'src/assets/js/_Krishnaglossary/js/glossary.js',
+    'src/assets/js/run.js'
+  ],
+  // async: [
+  //   'bower_components/background-check/background-check.min.js',
+  //   'src/assets/js/_colourBrightness.js-master/jquery.colourbrightness.min.js',
+  //   'bower_components/Scrollify/jquery.scrollify.min.js',
+  //   // 'bower_components/fullpage.js/vendors/jquery.slimscroll.min.js',
+  //   // 'bower_components/fullpage.js/jquery.fullPage.min.js',
+  //   'src/assets/js/async.js'
+  // ],
+  json: [
+    'src/assets/js/_Krishnaglossary/data/*.json'
   ]
+  // glossary: [
+  //   'bower_components/jquery-easing/jquery.easing.js',
+  //   'bower_components/jquery.transit/jquery.transit.js',
+  //   'bower_components/jquery-color/jquery.color.js',
+  //   'bower_components/jquery-autocomplete/jquery.autocomplete.min.js',
+  //   'src/assets/js/_taxonomy/essemble_core.min.js',
+  //   'bower_components/custom-select-menu/custom-select-menu.jquery.js',
+  //   'src/assets/js/_taxonomy/glossary.js'
+  // ]
 };
 
 // Delete the "dist" folder
@@ -104,11 +136,11 @@ gulp.task('sass', function() {
       new RegExp('^meta\..*'),
       new RegExp('^\.is-.*')
     ]
-  }));
+}));
 
   var minifycss = $.if(isProduction, $.minifyCss());
 
-  return gulp.src('src/assets/scss/app.scss')
+  return gulp.src('src/assets/scss/juju.scss')
     .pipe($.sourcemaps.init())
     .pipe($.sass({
       includePaths: PATHS.sass
@@ -123,7 +155,7 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('dist/assets/css'));
 });
 
-// Combine JavaScript into one file
+// Combine Base JavaScript into one file
 // In production, the file is minified
 gulp.task('javascript', function() {
   var uglify = $.if(isProduction, $.uglify()
@@ -133,11 +165,44 @@ gulp.task('javascript', function() {
 
   return gulp.src(PATHS.javascript)
     .pipe($.sourcemaps.init())
-    .pipe($.concat('app.js'))
+    // .pipe(strip())
+    // .pipe($.babel())
+    // .pipe($.babel({
+    //         ignore: 'bower_components/jquery-scrollto/src/documents/lib/jquery-scrollto.js'
+    //     }))
+    .pipe($.concat('juju.js'))
     .pipe(uglify)
     .pipe($.if(!isProduction, $.sourcemaps.write()))
     .pipe(gulp.dest('dist/assets/js'));
 });
+
+// Combine Glossary JavaScript into one file
+// In production, the file is minified
+// gulp.task('glossary', function() {
+//   var uglify = $.if(isProduction, $.uglify()
+//     .on('error', function (e) {
+//       console.log(e);
+//     }));
+
+//   return gulp.src(PATHS.glossary)
+//     .pipe($.sourcemaps.init())
+//     // .pipe($.babel())
+//     .pipe($.concat('glossary.js'))
+//     .pipe(uglify)
+//     .pipe($.if(!isProduction, $.sourcemaps.write()))
+//     .pipe(gulp.dest('dist/assets/js'));
+// });
+
+gulp.task('json', function() {
+  return gulp.src(PATHS.json)
+    .pipe(gulp.dest('dist/assets/json'));
+});
+
+// gulp.task('async', function() {
+//   return gulp.src(PATHS.async)
+//     .pipe($.concat('async.js'))
+//     .pipe(gulp.dest('dist/assets/js'))
+// });
 
 // Copy images to the "dist" folder
 // In production, the images are compressed
@@ -153,7 +218,8 @@ gulp.task('images', function() {
 
 // Build the "dist" folder by running all of the above tasks
 gulp.task('build', function(done) {
-  sequence('clean', ['pages', 'sass', 'javascript', 'images', 'copy'], 'styleguide', done);
+  sequence('clean', ['pages', 'sass', 'javascript', 'json', 'images', 'copy'], 'styleguide', done);
+  // sequence('clean', ['pages', 'sass', 'javascript', 'async', 'json', 'images', 'copy'], 'styleguide', done);
 });
 
 // Start a server with LiveReload to preview the site in
@@ -170,6 +236,8 @@ gulp.task('default', ['build', 'server'], function() {
   gulp.watch(['src/{layouts,partials}/**/*.html'], ['pages:reset', browser.reload]);
   gulp.watch(['src/assets/scss/**/*.scss'], ['sass', browser.reload]);
   gulp.watch(['src/assets/js/**/*.js'], ['javascript', browser.reload]);
+  // gulp.watch(['src/assets/js/async.js'], ['async', browser.reload]);
+  gulp.watch(['src/assets/js/_Krishnaglossary/data/klossary.json'], ['json', browser.reload]);
   gulp.watch(['src/assets/img/**/*'], ['images', browser.reload]);
   gulp.watch(['src/styleguide/**'], ['styleguide', browser.reload]);
 });

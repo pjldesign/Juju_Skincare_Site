@@ -1,0 +1,55 @@
+{
+    "data": [{
+        "title": "Adansonia Digitata (Baobab) Seed Oil",
+        "desc": "Organic oil cold-pressed from seeds with no solvent or chemicals used, filtered and centrifuged to purify. The oil absorbs well, due to its high percentage of oleic acid. It is high in linoleic acid, a fatty acid component of cell membranes essential for good health. The sterol portion of the oil is high in β-Sitosterol which has been shown to have anti-inflammatory and anti-microbial properties in combination with fatty acids.",
+        "type": "text"
+    }, {
+        "title": "Anthemis Nobilis (Roman Chamomile) Oil",
+        "desc": "Chamomile flower oil, used to sooth injured and allergic skin. It is known to improve broken capillaries and increase elasticity.",
+        "type": "text"
+    }, {
+        "title": "Buriti Fruit Oil",
+        "desc": "The carotenoids in Buriti oil help protect the lipids in the skin from lipid peroxidation and to prevent the formation of damaging free radicals. Buriti oil also replenishes the unsaturated fatty acids found in the protective lipid layer of the stratum corneum. This increases the elasticity and moisturization of the skin and helps to reduce TEWL (trans epidermal water loss).",
+        "type": "text"
+    }, {
+        "title": "Butyrospermum Parkii (Shea) Butter",
+        "desc": "An organic butter pressed from the Shea nut which has served as a staple of African pharmacology. It is used for its  soothing, anti-inflammatory properties. It has been shown to provide some UV protection and has healing properties.",
+        "type": "text"
+    }, {
+        "title": "Commiphora Myrrha (Myrrh) Oil",
+        "desc": "Used for its anti-inflammatory and anti-viral properties and its cooling and soothing action.",
+        "type": "text"
+    }, {
+        "title": "Cyperus Esculentus (Tiger Nut) Root Oil",
+        "desc": "Organic oil pressed from the dried tubers of the Tiger nut, containing high levels of tocopherols or vitamin E which provide natural protection against free radicals.",
+        "type": "text"
+    }, {
+        "title": "Daucus Carota (Carrot) Seed Oil",
+        "desc": "An oil with revitalizing and toning properties, high in the precursor to vitamin A. All skin problems can benefit from it, and it is used for mature skin to help remove age spots.",
+        "type": "text"
+    }, {
+        "title": "Helichrysum Splendidum (Everlasting) Oil",
+        "desc": "Used for anti-microbial properties but is also excellent for skin regeneration.",
+        "type": "text"
+    }, {
+        "title": "Lanolin",
+        "desc": "Oil from wool which is high in cholesterol, a necessary component of skin healing.",
+        "type": "text"
+    }, {
+        "title": "Lecithin",
+        "desc": "A fatty substance made from organic soy, used to help emulsify the natural oil. More importantly, it is a source of phosphatidylcholine, one of the major components of the phospholipid portion of all cell membranes and thus of vital use to the skin for healing.",
+        "type": "text"
+    }, {
+        "title": "Olea Europaea (Olive) Fruit Oil Unsaponifiables",
+        "desc": "The components in olive oil which are not fatty acids and so cannot saponify (convert to soap by being hydrolyzed into an acid and alcohol). This fraction contains the phytosterols including vitamin E that have anti-oxidant and anti-inflammatory properties.",
+        "type": "text"
+    }, {
+        "title": "Rosehip (Rosa Mosqueta) Seed Oil",
+        "desc": "An organic oil high in carotenoids, flavonoids and natural vitamins. It also contains higher levels of essential fatty acids than most other oils, so it is used in scar healing and skin regeneration, and is excellent for mature skin.",
+        "type": "text"
+    }, {
+        "title": "Tocopherol",
+        "desc": "The active form of vitamin E, with anti-oxidant properties to help protect the oils as well as the skin.",
+        "type": "text"
+    }]
+}

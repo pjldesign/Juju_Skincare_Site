@@ -1,0 +1,13 @@
+body{
+	font-size:0.75rem;
+	color:#000;
+	font-family: arial;
+}
+.kloBtns, button{
+	border-radius: 2px;
+	margin: 2px;
+	padding: 5px 10px;
+}
+input, select, p{
+	font-size:1.2rem;
+}

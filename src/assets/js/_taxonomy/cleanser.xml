@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<data>
+
+	<box id="row1" class="row" max-width="100%" margin-bottom="20">
+		<text id="title" y="10" class="medium-6 columns" anim="none" animtime="0"><![CDATA[<h1>Glossary of Ingredients</h1>]]></text>
+		<text id="search" class="medium-6 columns" anim="none" animtime="0"><![CDATA[<font>search:</font> <input id='searchInput' />]]></text>
+	</box>
+	
+	<!-- template boxes -->
+	<!-- the following boxes are required for laying out the glossary, edit as required but dont change the ids -->
+	<box id="row2" class="row" max-width="100%">
+		<box id="letterHolder" class="medium-12 columns clearfix" anim="none" animtime="0" animdelay="0"/>	
+	</box>
+
+	<box id="row3" class="large-6 columns" height="100%">
+		<box id="wordHolder" class="small-2 columns" margin-top="20px" scroll="true|y" anim="none" animtime="0" />
+		<box id="definitionHolder" margin-top="20px" scroll="true" anim="none" animtime="0" />
+	</box>
+	<!-- end template boxes -->
+
+	<custom type="glossary" id="glossary">
+		<settings letterWidth="40" letterHeight="30" letterPadding="1" letterBgTint="transparent" letterBgRolloverTint="transparent" letterTextRolloverTint="FFA2AD" letterBgSelectedTint="transparent" letterTextSelectedTint="FFA2AD" wordBgTint="transparent" wordBgRolloverTint="transparent" wordTextRolloverTint="FFA2AD" wordBgSelectedTint="transparent" wordTextSelectedTint="FFA2AD" tintAmount="1" useDropDownForWords="true"/>
+		
+		<letter id='Aa'>
+			<word id='Aardvark'>
+				<text id="Aardvark_txt" x="0" y="0" anim="show" animtime="0.5" animdelay="0"><![CDATA[<p>The <b>aardvark</b> (<i>Orycteropus afer</i>) is a medium-sized, burrowing, <a href="http://en.wikipedia.org/wiki/Nocturnal" title="Open Nocturnal in Wikipedia">nocturnal</a> (link opens Wikipedia) mammal native to <a href="javascript:glossary.showWord('Africa')" title="Load definition for Africa">Africa</a> (link loads definition).</p><p>Jump straight to a list of Glossary <a href="javascript:glossary.showWord('Features')" title="Load definition for Features">features.</a></p>]]></text>
+
+				<image id="a_img1" margin-top="20px" anim="show" animtime="1" animdelay="0.7"><![CDATA[http://placehold.it/150x100]]></image>
+			</word>
+			<word id='Africa'>
+				<box id="my_row" class="row">
+					<text id="Africa_txt" class="col-md-7" margin-bottom="20px" anim="show" animtime="0.5" animdelay="0"><![CDATA[<p>Africa is the world's second-largest and second-most-populous continent.</p><p>At about 30.2 million km2 (11.7 million sq mi) including adjacent islands, it covers six percent of the Earth's total surface area and 20.4 percent of the total land area.</p><p>With 1.1 billion people as of 2013, it accounts for about 15% of the world's human population.</p>]]></text>
+
+					<image id="a_img2" class="col-md-5" margin-left="20px" anim="show" animtime="1" animdelay="0"><![CDATA[http://placehold.it/200x200]]></image>
+				</box>
+			</word>
+			<word id='Animate'>
+				<text id="Animate_txt1" x="0" width="400" anim="right" animtime="1" animdelay="0" ease="Regular.easeOut"><![CDATA[<p>To make lively, vivacious, or vigorous; give zest or spirit to.</p>]]></text>
+
+				<text id="Animate_txt2" x="0" width="400" anim="right" animtime="1" animdelay="0.2" ease="Regular.easeOut"><![CDATA[<p>To give motion to.</p>]]></text>
+
+				<text id="Animate_txt3" x="0" width="400" anim="right" animtime="1" animdelay="0.4" ease="Regular.easeOut"><![CDATA[<p>To move or stir to action.</p>]]></text>
+
+				<text id="Animate_txt4" x="0" width="400" anim="right" animtime="1" animdelay="0.6" ease="Regular.easeOut"><![CDATA[<p>To give life to; make alive.</p>]]></text>
+			</word>
+		</letter>
+		
+		<letter id='Bb'>
+			<word id='Basic'><![CDATA[<p>Forming an essential foundation or starting point; fundamental.</p>]]></word>
+			<word id='Booster'><![CDATA[<ol><li>a person or thing that supports, assists, or increases power or effectiveness</li><li>(Astronautics) Also called: launch vehicle the first stage of a multistage rocket</li><li>(Electronics) radio television</li><li>(Aeronautics) another name for supercharger</li><li>(Mechanical Engineering) another name for supercharger</li><li>(Medicine) short for booster dose</li><li>US a shoplifter</li></ol>]]></word>
+		</letter>
+		
+		<letter id='Cc'>
+			<word id='Creative'><![CDATA[<p>One who displays productive originality.</p>]]></word>
+		</letter>
+		
+		<letter id='Dd'>
+			<word id='Design'><![CDATA[<p><b>noun</b></p><ol><li>a plan or drawing produced to show the look and function or workings of a building, garment, or other object before it is made.<br/>"he has just unveiled his design for the new museum"<br/>synonyms:	plan, blueprint, drawing, scale drawing, sketch, outline, map, plot, diagram, delineation, draft, depiction, representation, artist's impression, scheme, model, prototype, proposal</li><li>a decorative pattern.<br/>"pottery with a lovely blue and white design"<br/>synonyms:	pattern, motif, device;</li><li>purpose or planning that exists behind an action, fact, or object.<br/>"the appearance of design in the universe"<br/>synonyms:	intention, aim, purpose, plan, intent, objective, object, goal, end, target, point, hope, desire, wish, dream, aspiration, ambition, idea</ol><p><b>verb</b></p><p>verb: design; 3rd person present: designs; past tense: designed; past participle: designed; gerund or present participle: designing</p><ol><li>decide upon the look and functioning of (a building, garment, or other object), by making a detailed drawing of it.<br/>"a number of architectural students were designing a factory"<br/>synonyms:	plan, draw plans of, draw, sketch, outline, map out, plot, block out, delineate, draft, depict</li></ol>]]></word>
+			<word id='DJ Rum'><![CDATA[<iframe width="100%" max-width="700" height="280" src="http://youtube.com/embed/s1yiHo6Rs0g" frameborder="0" allowfullscreen></iframe>]]></word>
+			<word id='Duffian'><![CDATA[<iframe width="100%" max-width="700" height="280" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/130642150&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>]]></word>
+		</letter>
+		
+		<letter id='Ee'>
+			<word id='Efficient'><![CDATA[<p>Of a system or machine: achieving maximum productivity with minimum wasted effort or expense. Of a person: working in a well-organized and competent way.</p>]]></word>
+			<word id='Elegant'><![CDATA[<p>Graceful and stylish in appearance or manner. Of a scientific theory or solution to a problem: pleasingly ingenious and simple.</p>]]></word>
+			<word id='Engage'><![CDATA[<p>Occupy or attract (someone's interest or attention). Participate or become involved in.</p>]]></word>
+		</letter>
+		
+		<letter id='Ff'>
+			<word id='Features'><![CDATA[<ul><li>All terms and definitions are held in XML for ease of maintenance and localisation</li><li>Automatically sorts words alpha-numerically</li><li>Definitions can include text, images, <a href="javascript:glossary.showWord('Water')" title="Load definition for Water">video</a> or any user defined HTML</li><li>Optionally animate definition text and imagery (see <a href="javascript:glossary.showWord('NASA')" title="Load definition for NASA">NASA</a> or <a href="javascript:glossary.showWord('Animate')" title="Load definition for Animate">Animate</a>)</li><li>Load word function (for internal linking as demonstrated in the links above)</li><li>Change letter block position, height and width</li><li>Change word block position, height and width</li><li>Change definition block position, height and width</li><li>Change font styles and colours</li><li>Example style settings:<br/>letterWidth="25" letterHeight="30" letterPadding="1" letterBgTint="eeeeee" letterBgRolloverTint="84bc01" letterTextRolloverTint="transparent" letterBgSelectedTint="84bc01" letterTextSelectedTint="transparent" wordBgTint="eeeeee" wordBgRolloverTint="84bc01" wordTextRolloverTint="transparent" wordBgSelectedTint="84bc01" wordTextSelectedTint="transparent" tintAmount="1"</li><li>Letters with no word entries are automatically disabled (or the letter can be omitted)</li><li>Touch device friendly</li><li>Comes with documentation and a fully functional example</li></ul>]]></word>
+		</letter>
+		
+		<letter id='Gg'>
+		</letter>
+		
+		<letter id='Hh'>
+			<word id='HTML5'><![CDATA[<p>HTML5 is a core technology markup language of the Internet used for structuring and presenting content for the World Wide Web. As of October 2014 this is the final and complete fifth revision of the HTML standard of the World Wide Web Consortium (W3C). The previous version, HTML 4, was standardised in 1997.</p>]]></word>
+		</letter>
+		
+		<letter id='Ii'>
+			<word id='Interactive'><![CDATA[<p>Allowing a two-way flow of information between a computer and a computer-user; responding to a user’s input.</p>]]></word>
+			<word id='iPad'><![CDATA[<p>The iPad is a 9.7 inch touch screen tablet PC made by Apple . The iPad is basically a netbook without a keyboard. It has a multi-touch LED-backlit 9.7 x 7.5 inch front display and weighs 1.5 pounds, with a battery that lasts up to ten hours.</p>]]></word>
+		</letter>
+		
+		<letter id='Jj'>
+			<word id='jQuery'><![CDATA[<p>jQuery is a cross-platform JavaScript library designed to simplify the client-side scripting of HTML. Used by over 60% of the 10,000 most visited websites, jQuery is the most popular JavaScript library in use today. jQuery is free, open source software, licensed under the MIT License.</p>]]></word>
+		</letter>
+		
+		<letter id='Kk'>
+			<word id='Knowledge'><![CDATA[<p>Facts, information, and skills acquired through experience or education; the theoretical or practical understanding of a subject.</p>]]></word>
+		</letter>
+		
+		<letter id='Ll'>
+		</letter>
+		
+		<letter id='Mm'>
+			<word id='Maintain'><![CDATA[<p>Cause or enable (a condition or situation) to continue.</p>]]></word>
+			<word id='Multi-media'><![CDATA[<p>The use of a variety of artistic or communicative media.</p>]]></word>
+		</letter>
+		
+		<letter id='Nn'>
+			<word id='NASA' event="">
+				<image id="n_img1" float="left" margin-right="10px" margin-bottom="10px" anim="alpha" animtime="1" animdelay="0"><![CDATA[http://placehold.it/150x83]]></image>
+				<image id="n_img2" float="left" margin-right="10px" margin-bottom="10px" anim="alpha" animtime="1" animdelay="0.1"><![CDATA[http://placehold.it/150x83]]></image>
+				<image id="n_img3" float="left" margin-right="10px" margin-bottom="10px" anim="alpha" animtime="1" animdelay="0.2"><![CDATA[http://placehold.it/150x83]]></image>
+				<image id="n_img4" float="left" margin-right="10px" margin-bottom="10px" anim="alpha" animtime="1" animdelay="0.3"><![CDATA[http://placehold.it/150x83]]></image>
+				<image id="n_img5" float="left" margin-right="10px" margin-bottom="10px" anim="alpha" animtime="1" animdelay="0.4"><![CDATA[http://placehold.it/150x83]]></image>
+				<image id="n_img6" float="left" margin-right="10px" margin-bottom="10px" anim="alpha" animtime="1" animdelay="0.5"><![CDATA[http://placehold.it/150x83]]></image>
+				<image id="n_img7" float="left" margin-right="10px" margin-bottom="10px" anim="alpha" animtime="1" animdelay="0.6"><![CDATA[http://placehold.it/150x83]]></image>
+				<image id="n_img8" float="left" margin-right="10px" margin-bottom="10px" anim="alpha" animtime="1" animdelay="0.7"><![CDATA[http://placehold.it/150x83]]></image>
+				<image id="n_img9" float="left" margin-right="10px" margin-bottom="10px" anim="alpha" animtime="1" animdelay="0.8"><![CDATA[http://placehold.it/150x83]]></image>
+				<image id="n_img10" float="left" margin-right="10px" margin-bottom="10px" anim="alpha" animtime="1" animdelay="0.9"><![CDATA[http://placehold.it/150x83]]></image>
+				<image id="n_img11" float="left" margin-right="10px" margin-bottom="10px" anim="alpha" animtime="1" animdelay="1"><![CDATA[http://placehold.it/150x83]]></image>
+				<image id="n_img12" float="left" margin-right="10px" margin-bottom="10px" anim="alpha" animtime="1" animdelay="1.1"><![CDATA[http://placehold.it/150x83]]></image>
+				<image id="n_img13" float="left" margin-right="10px" margin-bottom="10px" anim="alpha" animtime="1" animdelay="1.2"><![CDATA[http://placehold.it/150x83]]></image>
+				<image id="n_img14" float="left" margin-right="10px" margin-bottom="10px" anim="alpha" animtime="1" animdelay="1.3"><![CDATA[http://placehold.it/150x83]]></image>
+				<image id="n_img15" float="left" margin-right="10px" margin-bottom="10px" anim="alpha" animtime="1" animdelay="1.4"><![CDATA[http://placehold.it/150x83]]></image>
+			</word>
+		</letter>
+		
+		<letter id='Oo'>
+		</letter>
+		
+		<letter id='Pp'>
+			<word id='Pomegranate'><![CDATA[<p>A spherical fruit with a tough golden-orange outer skin and sweet red gelatinous flesh containing many seeds.</p>]]></word>
+		</letter>
+		
+		<letter id='Qq'>
+		</letter>
+		
+		<letter id='Rr'>
+		</letter>
+		
+		<letter id='Ss'>
+			<word id='Scroll #1'>
+				<![CDATA[<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Ur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Quis nostrud exercitation ullamco laboris nisi ut aliquip lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Ur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Quis nostrud exercitation ullamco laboris nisi ut aliquip lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Ur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Quis nostrud exercitation ullamco laboris nisi ut aliquip lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>]]></word>
+
+			<word id='Scroll #2'><![CDATA[<p>Scroll #2 definition.</p>]]></word>
+			<word id='Scroll #3'><![CDATA[<p>Scroll #3 definition.</p>]]></word>
+			<word id='Scroll #4'><![CDATA[<p>Scroll #4 definition.</p>]]></word>
+			<word id='Scroll #5'><![CDATA[<p>Scroll #5 definition.</p>]]></word>
+			<word id='Scroll #6'><![CDATA[<p>Scroll #6 definition.</p>]]></word>
+			<word id='Scroll #7'><![CDATA[<p>Scroll #7 definition.</p>]]></word>
+			<word id='Scroll #8'><![CDATA[<p>Scroll #8 definition.</p>]]></word>
+			<word id='Scroll #9'><![CDATA[<p>Scroll #9 definition.</p>]]></word>
+			<word id='Scroll #10'><![CDATA[<p>Scroll #10 definition.</p>]]></word>
+			<word id='Scroll #11'><![CDATA[<p>Scroll #11 definition.</p>]]></word>
+			<word id='Scroll #12'><![CDATA[<p>Scroll #12 definition.</p>]]></word>
+			<word id='Scroll #13'><![CDATA[<p>Scroll #13 definition.</p>]]></word>
+			<word id='Scroll #14'><![CDATA[<p>Scroll #14 definition.</p>]]></word>
+		</letter>
+		
+		<letter id='Tt'>
+			<word id='Translate'><![CDATA[<p>Express the sense of (words or text) in another language.<br/>Convert something or be converted into another form or medium.</p>]]></word>
+		</letter>
+		
+		<letter id='Uu'>
+			<word id='Use'><![CDATA[<p>Take, hold, or deploy (something) as a means of accomplishing or achieving something; employ.</p>]]></word>
+		</letter>
+		
+		<letter id='Vv'>
+			<word id='Va va voom'><![CDATA[<p>The quality of being exciting, vigorous, or attractive.</p>]]></word>
+		</letter>
+		
+		<letter id='Ww'>
+			<word id='Water'><![CDATA[<iframe width="100%" max-width="700" height="250" src="http://youtube.com/embed/iwEMOt2HTJc" frameborder="0" allowfullscreen></iframe>]]></word>
+		</letter>
+		
+		<letter id='Xx'>
+			<word id=''><![CDATA[There are no entries in this category.]]></word>
+		</letter>
+		
+		<letter id='Yy'>
+			<word id='Yes'><![CDATA[<p>Affirmative.]]></word>
+		</letter>
+		
+		<letter id='Zz'>
+			<word id=''><![CDATA[There are no entries in this category.]]></word>
+		</letter>
+	</custom>
+
+</data>

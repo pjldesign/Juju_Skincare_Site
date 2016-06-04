@@ -1,0 +1,23 @@
+{
+    "data": [{
+        "title": "Adansonia Digitata (Baobab) Fruit Pulp Extract",
+        "desc": "A concentrated polysaccharide gel made from the fruit pulp powder, used to smooth, revitalize, and moisturize the skin.",
+        "type": "text"
+    }, {
+        "title": "Alcohol",
+        "desc": "Ethanol produced by the fermentation of certified organic cane, used as a solvent and preservative.",
+        "type": "text"
+    }, {
+        "title": "Anthemis Nobilis (Chamomile) Floral Water or Hydrosol",
+        "desc": "An aqueous solution or colloidal suspension left after essential oils are separated from the surface of a chamomile flower distillate, used for soothing and healing the skin.",
+        "type": "text"
+    }, {
+        "title": "Cyperus Esculentus (Tiger Nut) Tuber Extract",
+        "desc": "Contains proteins, natural sugars, vitamins, and minerals. Reinforces, repairs, and protects the structure of the papillary dermis involved in the the cutaneous tissue’s properties of resilience, deformability and elasticity, making the skin springy and limiting the appearance of wrinkles. It protects and restores the oxytalan microfibrillar network that acts as a shock absorber for the dermal papillae. This network is composed of functional collagens XII and XVI, specific to the papillary dermis and responsible for deformability and extensibility, and matrix collagens I and VI, responsible for resistance, cohesion and flexibility.",
+        "type": "text"
+    }, {
+        "title": "Natural Moisturizing Factors (NMFs): Sodium PCA, Sodium Lactate, Arginine, Aspartic Acid, PCA, Glycine, Alanine, Serine, Valine, Proline, Threonine, Isoleucine, Histidine, and Phenylalanine",
+        "desc": "This blend of NMFs are naturally found in the intercellular spaces of the epidermis, and function to hold water in the skin. These NMFs are lost with daily cleansing but studies have shown that they can be replaced when added to lotions or creams.",
+        "type": "text"
+    }]
+}

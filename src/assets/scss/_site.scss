@@ -1,0 +1,3439 @@
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//GLOBAL STYLES
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+* {
+    list-style-type: none;
+    outline: none;
+}
+
+*:before {
+    box-sizing: content-box !important;
+}
+
+input[type="file"],
+input[type="checkbox"],
+input[type="radio"],
+select {
+    margin: 0 !important;
+}
+
+// Colors
+$juju-green: rgb(186, 210, 158);
+$juju-light-green: #DEE283;
+$juju-blue: rgb(215, 224, 235);
+$juju-orange: rgb(255, 193, 144);
+$juju-violet: rgb(218, 207, 221);
+$juju-red: rgb(233, 192, 197);
+$juju-dark-red: darken($juju-red, 20%);
+$juju-yellow: rgb(243, 218, 154);
+$juju-paper: #FFFEF6;
+$juju-brown: #9C8073;
+$juju-caramel: #BF955F;
+$juju-ash-brown: #A59995;
+$juju-peach: #FFBB9D;
+// $juju-paper: lighten($juju-orange, 20%);
+$red-ash: #544547;
+$warm-ash: #CDC6C3;
+$bright-red: #FF6363;
+$splash-logo: darken($warm-ash, 50%);
+$slpash-hover: #FFF6E2;
+$book: #F7EED9;
+// Fonts
+$bodoni-book: "BodoniSvtyTwoOSITCTTBook",
+Georgia,
+Times,
+sans-serif;
+$bodoni-bold: "BodoniSvtyTwoOSITCTTBold",
+Georgia,
+Times,
+sans-serif;
+$bodoni-sc-book: "BodoniSvtyTwoSCITCTTBook",
+Georgia,
+Times,
+sans-serif;
+$standard-kerning: 2px;
+$border-light: 1px solid lighten($black, 80%) !important;
+$border-light-thick: 4px solid lighten($black, 80%) !important;
+$border-ultralight: 1px solid #EAEAEA !important;
+$single-transition: all .3s ease-in-out;
+// Globals
+html {
+    position: relative;
+}
+
+body {
+    position: relative;
+    height: 100% !important;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    background-color: $white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $bodoni-sc-book;
+}
+
+.columns {
+    position: relative;
+}
+
+@mixin cookies-n-cream {
+    background: -moz-linear-gradient(left, $warm-ash 0%, $warm-ash 50%, darken($warm-ash, 5%) 50%, darken($warm-ash, 5%) 100%);
+    background: -webkit-linear-gradient(left, $warm-ash 0%, $warm-ash 50%, darken($warm-ash, 5%) 50%, darken($warm-ash, 5%) 100%);
+    background: linear-gradient(to right, $warm-ash 0%, $warm-ash 50%, darken($warm-ash, 5%) 50%, darken($warm-ash, 5%) 100%);
+}
+
+@mixin anchor {
+    font-family: $bodoni-sc-book;
+    font-size: 15px;
+    color: $black;
+    letter-spacing: $standard-kerning;
+    @include -motion-ui-defaults;
+    &:hover {
+        // color: darken($juju-red, 30%);
+        border-bottom: 1px solid;
+    }
+}
+
+@mixin text-input {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    height: 1.5rem;
+    padding: 0.5rem;
+    border: $border-light;
+    margin: 0 0 1rem;
+    font-family: $bodoni-book;
+    font-size: 15px;
+    color: $dark-gray;
+    background-color: $white;
+    box-shadow: none;
+    border-radius: 0;
+    transition: border-color 0.25s ease-in-out;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    @include -motion-ui-defaults;
+    &:focus {
+        border: lighten($black, 60%);
+        background-color: $white;
+        outline: none;
+        box-shadow: none;
+        transition: border-color 0.25s ease-in-out;
+    }
+}
+
+@mixin unbutton {
+    border: none;
+    background-color: $white;
+}
+
+@mixin center-button {
+    display: block;
+    margin: 0 auto;
+}
+
+[type='text'],
+[type='email'],
+[type='number'] {
+    @include text-input;
+}
+
+.top-bar {
+    background-color: transparent
+}
+
+.button {
+    @include button(true, $black, lighten($black, 20%), $white);
+    padding: .3rem 1rem .45rem 1rem;
+    width: 100%;
+    font-family: $bodoni-sc-book;
+    text-transform: lowercase;
+    letter-spacing: $standard-kerning;
+}
+
+.media-object img {
+    max-width: 100%;
+}
+
+.button.open {
+    @include button(true, $white, $black, auto);
+    padding: .3rem 1rem .45rem 1rem;
+    width: 100%;
+    font-family: $bodoni-sc-book;
+    text-transform: lowercase;
+    letter-spacing: $standard-kerning;
+    border: $border-light;
+}
+
+.button.round {
+    @include button($white, $black, auto);
+    padding: .3rem;
+    padding: .25rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: $border-light;
+    border-radius: 50%;
+}
+
+.button.open:hover {
+    color: $white;
+    border: 1px solid transparent;
+}
+
+p {
+    font-family: $bodoni-book;
+}
+
+@mixin small-header {
+    font-family: $bodoni-sc-book;
+    font-size: 15px;
+    color: $black;
+    letter-spacing: $standard-kerning;
+    text-align: center;
+    text-transform: lowercase;
+    @include -motion-ui-defaults;
+}
+
+.small-header {
+    @include small-header;
+}
+
+// Custom Classes
+.fixed {
+    position: fixed;
+}
+
+.large-collapse {
+    @include breakpoint(large-up) {
+        @include grid-column-collapse;
+    }
+}
+
+.medium-collapse {
+    @include breakpoint(medium-only) {
+        @include grid-column-collapse;
+    }
+}
+
+.collapse {
+    @include grid-column-collapse;
+}
+
+.tbp {
+    @include breakpoint(small) {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+    @include breakpoint(medium) {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+}
+
+.dtbp {
+    @include breakpoint(small) {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+    @include breakpoint(medium) {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
+}
+
+.vertical-content-wrapper {
+    display: table !important;
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.vertical-content-outer-wrapper {
+    height: 100%;
+}
+
+.vertical-center {
+    display: table-cell !important;
+    vertical-align: middle !important;
+}
+
+.vertical-content-wrapper.reflow-mobile {
+    @include breakpoint(small) {
+        display: block;
+        position: relative;
+        width: 100%;
+    }
+    @include breakpoint(medium) {
+        display: block;
+        position: relative;
+        width: 100%;
+    }
+    @include breakpoint(large) {
+        display: table;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+    }
+}
+
+.vertical-center {
+    display: table-cell !important;
+    vertical-align: middle;
+}
+
+.vertical-center.reflow-mobile {
+    @include breakpoint(small) {
+        display: block;
+        position: relative;
+    }
+    @include breakpoint(medium) {
+        display: block;
+        position: relative;
+    }
+    @include breakpoint(large) {
+        display: table-cell;
+        vertical-align: middle;
+    }
+}
+
+.svg-inner-wrapper {
+    height: 0;
+    margin: 0 auto;
+    position: relative;
+    transition: $single-transition;
+    @include breakpoint(small) {
+        width: 6rem;
+        padding-top: 6rem;
+    }
+    @include breakpoint(medium) {
+        width: 7rem;
+        padding-top: 7rem;
+    }
+    @include breakpoint(large) {
+        width: 10rem;
+        padding-top: 10rem;
+    }
+    @include breakpoint(xxlarge) {
+        width: 13rem;
+        padding-top: 13rem;
+    }
+}
+
+g#wreath {
+    -webkit-transform-origin: 50% 50% !important;
+    -ms-transform-origin: 50% 50% !important;
+    transform-origin: 50% 50% !important;
+    transform: rotate(2.75deg);
+}
+
+.has-tip {
+    border-bottom: none !important;
+    font-weight: normal !important;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//MAIN CONTENT
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// #site-container {
+//     overflow: hidden;
+// }
+// #mobile-site-message {
+//     margin-top: 1rem;
+//     padding: 0 2rem;
+//     @include breakpoint(small) {
+//         display: block;
+//     }
+//     @include breakpoint(medium) {
+//         display: block;
+//     }
+//     @include breakpoint(large) {
+//         display: none;
+//     }
+// }
+.main-content {
+    @include grid-col-collapse;
+}
+
+body#gp .main-content {
+    margin-top: 5rem;
+}
+
+main.columns {
+    @include breakpoint(large) {
+        @include grid-col-collapse;
+    }
+    height: 100%;
+}
+
+#content {
+    // @include flex-grid-row;
+    height: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    min-height: 100%;
+    @include breakpoint(large-up) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+#first {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    z-index: 2;
+}
+
+// section {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     background-size:cover;
+// }
+// #section1 {
+//     z-index: 3;
+// }
+// #section2 {
+//     z-index: 2;
+// }
+.fixed-slide {
+    margin: 0;
+    background: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+}
+
+section#products {
+    z-index: 7;
+    overflow-x: hidden;
+}
+
+section#third {
+    position: relative;
+    width: 100%;
+    z-index: -1;
+    .hsContainer {
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+    }
+    .hsContent {
+        max-width: 450px;
+        margin: -150px auto 0 auto;
+        display: table-cell;
+        vertical-align: middle;
+        color: #ebebeb;
+        padding: 0 8%;
+        text-align: center
+    }
+    background: $warm-ash;
+}
+
+// body[data-whatinput="mouse"] section {
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     background-size:cover;
+// }
+// body[data-whatinput="touch"] section {
+//     position: relative;
+// }
+h1.section-header {
+    width: 100%;
+    text-align: center;
+    font-family: $bodoni-book;
+    color: lighten($black, 30%);
+    background-color: $white;
+    @include -motion-ui-defaults;
+}
+
+h1.section-header {
+    @include breakpoint(small) {
+        padding: 3rem 0 1rem 0;
+    }
+    @include breakpoint(medium) {
+        padding: 3rem 0 3rem 0;
+    }
+    @include breakpoint(large) {
+        padding: 4rem 0 4rem 0;
+    }
+    @include breakpoint(xxlarge) {
+        padding: 5rem 0 5rem 0;
+    }
+}
+
+#heroSlider .rsGCaption {
+    text-align: center !important;
+    font-family: $bodoni-sc-book;
+    color: $white !important;
+    font-size: 30px;
+    background: transparent !important;
+}
+
+.hp-slider-wrapper {
+    padding: 0 !important;
+    overflow: hidden;
+}
+
+.mscroll {
+    display: block;
+    position: absolute;
+    bottom: 5rem;
+    left: 50%;
+    margin-left: -15px;
+    width: 30px;
+    height: 50px;
+    background: none;
+    transition: all .5s ease;
+    z-index: 30;
+}
+
+.mscroll:before {
+    content: "scroll";
+    color: $white;
+    font-family: $bodoni-sc-book;
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    margin-left: -20px;
+    width: 40px;
+    height: 15px;
+    -webkit-animation: scrollanimation 7s infinite;
+    animation: scrollanimation 7s infinite;
+    -webkit-animation-delay: 3s;
+    animation-delay: 4s;
+    z-index: 30;
+}
+
+.mscroll:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -5px;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid $white;
+    -webkit-animation: scrollanimation 7s infinite;
+    animation: scrollanimation 7s infinite;
+    -webkit-animation-delay: 3s;
+    animation-delay: 4s;
+    z-index: 30;
+}
+
+@keyframes scrollanimation {
+    0% {
+        transform: translate3d(0, 5px, 5px);
+    }
+    12% {
+        transform: translate3d(0, 16px, 16px);
+    }
+    24% {
+        transform: translate3d(0, 5px, 5px);
+    }
+    36% {
+        transform: translate3d(0, 16px, 16px);
+    }
+    48% {
+        transform: translate3d(0, 5px, 5px);
+    }
+    60% {
+        transform: translate3d(0, 16px, 16px);
+    }
+    72%,
+    100% {
+        transform: translate3d(0, 5px, 5px);
+    }
+}
+
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #f9f9f9;
+    z-index: 1;
+    font-size: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes loader_anim {
+    0% {
+        stroke: #e5e6e7;
+    }
+    50% {
+        stroke: #fff000;
+    }
+    100% {
+        stroke: #e5e6e7;
+        transform: rotate(-360deg);
+    }
+}
+
+g {
+    animation: loader_anim 0.75s linear infinite;
+    transform-origin: 50% 50%;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//TOPBAR / HEADER
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+a.home {
+    position: relative;
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.logo-wrapper {
+    width: 100%;
+    height: 125px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.logo-inner-wrapper {
+    height: 0;
+    margin: 0 auto;
+    position: relative;
+    @include breakpoint(small) {
+        width: 8rem;
+        padding-top: 8rem;
+    }
+    @include breakpoint(medium) {
+        width: 10rem;
+        padding-top: 10rem;
+    }
+    @include breakpoint(large) {
+        width: 12rem;
+        padding-top: 12rem;
+    }
+    @include breakpoint(xxlarge) {
+        width: 16rem;
+        padding-top: 16rem;
+    }
+}
+
+.top-bar-left .logo-inner-wrapper {
+    height: 0;
+    margin: 0 auto;
+    position: relative;
+    @include breakpoint(small) {
+        width: 3.25rem;
+        padding-top: 3.25rem;
+    }
+    @include breakpoint(medium) {
+        width: 3.5rem;
+        padding-top: 3.5rem;
+    }
+    @include breakpoint(large) {
+        width: 4rem;
+        padding-top: 4rem;
+    }
+    @include breakpoint(xxlarge) {
+        width: 4rem;
+        padding-top: 4rem;
+    }
+}
+
+.top-bar-left .home {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.menu-text {
+    padding: 0;
+}
+
+svg#juju-logo,
+svg#juju-logo-small {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+svg#juju-logo-small path {
+    @include -motion-ui-defaults;
+    // fill: $white;
+}
+
+svg#juju-logo-small:hover path {
+    @include -motion-ui-defaults;
+    fill: darken($juju-red, 30%)
+}
+
+svg#juju-logo path {
+    @include -motion-ui-defaults;
+    // fill: $splash-logo;
+    // fill: darken($juju-red, 40%);
+    // fill: $juju-peach;
+    // fill: $white;
+    fill: lighten($black, 20%);
+}
+
+svg#juju-logo g#juju-script path {
+    // fill: lighten($splash-logo, 5%);
+    // fill: $juju-peach;
+    // fill: $white;
+    fill: lighten($black, 20%);
+}
+
+// svg#juju-logo:hover path {
+//     fill: darken($juju-red, 30%) !important;
+// }
+.top-bar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    z-index: 1000;
+}
+
+.top-bar,
+.top-bar ul {
+    background: transparent;
+}
+
+.top-bar li {
+    text-align: center;
+}
+
+.top-bar li a,
+.top-bar li button {
+    display: block !important;
+    padding: 0 1rem !important;
+}
+
+.top-bar li a,
+.top-bar li a span,
+.top-bar li button {
+    text-transform: lowercase;
+    font-size: 16px;
+    @include anchor;
+    @include -motion-ui-defaults;
+}
+
+.top-bar li a:hover svg#juju-logo-small path {
+    fill: darken($juju-peach, 20%) !important;
+}
+
+.top-bar li a:hover,
+.top-bar li a:hover span,
+.top-bar li a.active,
+.top-bar li a.active span,
+.top-bar li button {
+    color: darken($juju-red, 30%);
+}
+
+#products-topnav>li {
+    text-align: center;
+}
+
+#products-topnav>li a {
+    font-family: $bodoni-book;
+    color: darken($warm-ash, 20%);
+    @include -motion-ui-defaults;
+    @include breakpoint(small) {
+        font-size: 1rem;
+    }
+    @include breakpoint(medium) {
+        font-size: 2rem;
+    }
+    @include breakpoint(large) {
+        font-size: 3rem;
+    }
+    @include breakpoint(xlarge) {
+        font-size: 3rem;
+    }
+}
+
+#products-topnav>li a.scrub:hover {
+    color: darken($juju-yellow, 10%);
+}
+
+#products-topnav>li a.cleanser:hover {
+    color: darken($juju-red, 10%);
+}
+
+#products-topnav>li a.cream:hover {
+    color: darken($juju-violet, 10%);
+}
+
+#products-topnav>li a.dry-serum:hover {
+    color: darken($juju-orange, 10%);
+}
+
+#products-topnav>li a.eye-serum:hover {
+    color: darken($juju-blue, 10%);
+}
+
+#products-topnav>li a.toner:hover {
+    color: darken($juju-green, 10%);
+}
+
+#products-topnav>li a.family:hover {
+    color: darken($warm-ash, 10%);
+}
+
+#products-nav-modal button.close-button {
+    color: darken($warm-ash, 20%);
+    left: 50%;
+    margin-left: -24px;
+    top: 2rem;
+    font-size: 3rem;
+    @include -motion-ui-defaults;
+}
+
+#products-nav-modal button.close-button:hover {
+    color: darken($warm-ash, 40%);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//MOBILE TOPBAR
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#m-nav {
+    width: 100%;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//SIDENAV
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#sidenav {
+    position: fixed;
+    top: 50%;
+    left: 1rem;
+    margin-left: 0;
+    margin-top: -50px;
+    margin-bottom: 0;
+    list-style-type: none;
+    z-index: 2;
+    li {
+        margin: 0;
+        width: 20px;
+        height: 20px;
+        position: relative;
+        a {
+            margin: 0 auto;
+            display: block;
+            height: 5px;
+            width: 5px;
+            border-radius: 30px;
+            background-color: $white;
+            position: relative;
+            top: 50%;
+            opacity: .3;
+            @include -motion-ui-defaults;
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+    li.current {
+        a {
+            display: block;
+            border-radius: 50%;
+            opacity: 1;
+        }
+    }
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//BACKGROUND CHECK
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+body.pp .top-bar:after {
+    content: '';
+    background: $white;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 350px;
+    opacity: .9;
+    z-index: -1;
+}
+
+body#pp-family .pullquote {
+    left: 3rem !important;
+    @include breakpoint(large) {
+        top: 30% !important;
+    }
+    @include breakpoint(xlarge) {
+        top: 20% !important;
+    }
+}
+
+body#pp-family li#related {
+    display: none !important;
+}
+
+#sidenav.bgc--dark li a {
+    background-color: $white;
+}
+
+#sidenav.background--dark li a {
+    background-color: $white !important;
+}
+
+.top-bar.bgc--dark a,
+.top-bar.bgc--dark a span,
+.top-bar.bgc--dark button,
+.top-bar.bgc--dark svg#juju-logo-small path {
+    color: $white;
+    fill: $white;
+}
+
+.top-bar.background--dark a,
+.top-bar.background--dark a span,
+.top-bar.background--dark button,
+.top-bar.background--dark svg#juju-logo-small path {
+    color: $white !important;
+    fill: $white !important;
+}
+
+#sidenav.bgc--light li a {
+    background-color: lighten($black, 10%);
+}
+
+#sidenav.background--light li a {
+    background-color: lighten($black, 10%) !important;
+}
+
+.top-bar.bgc--light a,
+.top-bar.bgc--light a span,
+.top-bar.bgc--light button,
+.top-bar.bgc--light svg#juju-logo-small path {
+    color: lighten($black, 10%);
+    fill: lighten($black, 10%);
+}
+
+.top-bar.background--light a,
+.top-bar.background--light a span,
+.top-bar.background--light button,
+.top-bar.background--light svg#juju-logo-small path {
+    color: lighten($black, 10%) !important;
+    fill: lighten($black, 10%) !important;
+}
+
+#sidenav.bgc--dark.background--complex li a {
+    background-color: $white;
+}
+
+#sidenav.background--dark.background--complex li a {
+    background-color: $white !important;
+}
+
+.top-bar.bgc--dark.background--complex a,
+.top-bar.bgc--dark.background--complex a span,
+.top-bar.bgc--dark.background--complex button,
+.top-bar.bgc--dark.background--complex svg#juju-logo-small path {
+    color: $white;
+    fill: $white;
+}
+
+.top-bar.background--dark.background--complex a,
+.top-bar.background--dark.background--complex a span,
+.top-bar.background--dark.background--complex button,
+.top-bar.background--dark.background--complex svg#juju-logo-small path {
+    color: $white !important;
+    fill: $white !important;
+}
+
+#sidenav.bgc--light.background--complex li a {
+    background-color: lighten($black, 10%);
+}
+
+#sidenav.background--light.background--complex li a {
+    background-color: lighten($black, 10%) !important;
+}
+
+.top-bar.bgc--light.background--complex a,
+.top-bar.bgc--light.background--complex a span,
+.top-bar.bgc--light.background--complex button,
+.top-bar.bgc--light.background--complex svg#juju-logo-small path {
+    color: lighten($black, 10%);
+    fill: lighten($black, 10%);
+}
+
+.top-bar.background--light.background--complex a,
+.top-bar.background--light.background--complex a span,
+.top-bar.background--light.background--complex button,
+.top-bar.background--light.background--complex svg#juju-logo-small path {
+    color: lighten($black, 10%) !important;
+    fill: lighten($black, 10%) !important;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//OFFCANVAS BAG
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+.mm-page {
+    height: 100%;
+}
+
+.mm-menu {
+    max-width: 440px !important;
+}
+
+.mm-panels > .mm-panel {
+    padding: 0 !important;
+}
+
+.update-button {
+    font-family: $bodoni-sc-book;
+    font-size: 15px;
+    color: $black;
+    letter-spacing: $standard-kerning;
+    @include unbutton;
+    @include center-button;
+    @include -motion-ui-defaults;
+    margin-bottom: .5rem;
+    &:hover {
+        color: darken($juju-red, 30%);
+    }
+}
+
+.shopping-bag {
+    background-color: transparent !important;
+}
+
+.shopping-bag:not(.mm-menu) {
+    display: none;
+}
+
+.shopping-bag .mm-title {
+    display: none !important;
+}
+
+// .shopping-bag>.mm-panels {
+//     display: none;
+// }
+.shopping-bag ul {
+    margin: 0;
+}
+
+.shopping-bag:not( .mm-menu) {
+    display: none;
+}
+
+.shopping-bag #global-cart-stats {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 1rem;
+    z-index: 99;
+}
+
+.shopping-bag #global-cart-stats .subtotal {
+    font-family: $bodoni-sc-book;
+    text-transform: lowercase;
+}
+
+.shopping-bag #global-cart-stats .subtotal .st-right {
+    float: right;
+}
+
+.shopping-bag .message {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.shopping-bag thead {
+    background-color: $white;
+    border: none;
+}
+
+.shopping-bag th {
+    font-family: $bodoni-sc-book;
+    font-weight: normal;
+    text-transform: lowercase;
+    letter-spacing: $standard-kerning;
+}
+
+.bag-item {
+    padding: .5rem;
+    border-bottom: $border-light;
+}
+
+.bag-item li {
+    padding: 0;
+}
+
+.bag-item h1,
+.bag-item h2 {
+    font-size: 15px;
+    margin-top: .5rem;
+}
+
+.bag-item h1,
+.bag-item td {
+    font-family: $bodoni-book;
+    font-weight: normal;
+}
+
+.bag-item [type='number'] {
+    width: 100% !important;
+}
+
+.image-wrapper>a {
+    display: block;
+    @include breakpoint(large) {
+        padding: 2rem;
+    }
+}
+
+.image-wrapper {
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.image-overlay-content {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    bottom: 0;
+    left: 0;
+}
+
+.overlay-fade-in p {
+    font-family: $bodoni-sc-book;
+    color: $white;
+    font-size: 16px;
+    opacity: 0;
+    transition: all 0.2s linear;
+}
+
+.overlay-fade-in img {
+    transition: all 0.2s linear;
+}
+
+.overlay-fade-in .image-overlay-content {
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: all 0.4s ease-in-out;
+}
+
+.overlay-fade-in h2 {
+    font-family: $bodoni-book;
+    color: $white;
+    font-size: 18px;
+    margin-top: 40%;
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+}
+
+.overlay-fade-in .button {
+    display: inline-block;
+    text-decoration: none;
+    padding: 7px 14px;
+    background: #FFF;
+    color: #222;
+    text-transform: uppercase;
+    box-shadow: 0 0 1px #000;
+    position: relative;
+    border: 1px solid #999;
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+}
+
+.overlay-fade-in .button:hover {
+    box-shadow: 0 0 5px #000;
+}
+
+// .overlay-fade-in:hover img {
+//     transform: scale(1.2);
+// }
+.overlay-fade-in:hover .image-overlay-content {
+    opacity: 1;
+}
+
+.overlay-fade-in:hover h2,
+.overlay-fade-in p,
+.overlay-fade-in .button {
+    opacity: 1;
+}
+
+.overlay-fade-in:hover p {
+    transition-delay: 0.1s;
+}
+
+.overlay-fade-in:hover .button {
+    transition-delay: 0.2s;
+}
+
+.overlay-slide-in-left img {
+    transition: all 0.3s ease-in-out;
+}
+
+.overlay-slide-in-left .image-overlay-content {
+    background-image: url(http://www.awwwards.com/awards/images/2015/04/pattern.jpg);
+    background-color: rgba(0, 0, 0, 0.3);
+    transform: translateX(-110%);
+    opacity: 1;
+    transition: all 0.4s ease-in-out;
+    box-shadow: 0 0 7px #ccc;
+}
+
+.overlay-slide-in-left h2 {
+    font-size: 1.8rem;
+    background: rgba(255, 255, 255, 0.7);
+    margin-top: 40%;
+    color: #000;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.overlay-slide-in-left p {
+    opacity: 0;
+    color: #333;
+    transition: all 0.2s linear;
+}
+
+.overlay-slide-in-left .button {
+    display: inline-block;
+    text-decoration: none;
+    padding: 7px 14px;
+    background: #000;
+    color: #fff;
+    text-transform: uppercase;
+    box-shadow: 0 0 1px #000;
+    position: relative;
+    border-radius: 7px;
+}
+
+.overlay-slide-in-left .button:hover {
+    background-color: #444;
+}
+
+.overlay-slide-in-left:hover .image-overlay-content {
+    transform: translateX(0px);
+}
+
+.overlay-slide-in-left:hover img {
+    transform: translateX(80%);
+    transition-delay: 0.1s;
+}
+
+.overlay-slide-in-left:hover p {
+    opacity: 1;
+    transition-delay: 0.4s;
+}
+
+.overlay-fade-in-new-background .button {
+    display: inline-block;
+    text-decoration: none;
+    padding: 7px 14px;
+    background: #000;
+    color: #fff;
+    text-transform: uppercase;
+    border-radius: 5px;
+    box-shadow: 0 0 1px #000;
+    position: relative;
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+}
+
+.overlay-fade-in-new-background .button:hover {
+    box-shadow: 0 0 5px #fff;
+    background-color: #222;
+}
+
+.overlay-fade-in-new-background p {
+    font-size: 28px;
+}
+
+.overlay-fade-in-new-background .image-overlay-content {
+    opacity: 0;
+    background-image: url(http://subtlepatterns.com/patterns/gplaypattern.png);
+    background-color: rgba(255, 255, 255, 0.5);
+    transition: all 0.4s ease-in-out;
+}
+
+.overlay-fade-in-new-background h2 {
+    color: #000;
+    font-size: 1.6rem;
+    margin-top: 30%;
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+}
+
+.overlay-fade-in-new-background p {
+    opacity: 0;
+    transition: all 0.2s linear;
+}
+
+.overlay-fade-in-new-background img {
+    transition: all 0.2s ease-in-out;
+}
+
+.overlay-fade-in-new-background:hover img {
+    filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/></filter></svg>#grayscale");
+    filter: gray;
+    -webkit-filter: grayscale(100%);
+    transform: scale(1.5);
+}
+
+.overlay-fade-in-new-background:hover .image-overlay-content {
+    opacity: 1;
+}
+
+.overlay-fade-in-new-background:hover h2,
+.overlay-fade-in-new-background p,
+.overlay-fade-in-new-background .button {
+    opacity: 1;
+}
+
+.overlay-fade-in-new-background:hover p {
+    transition-delay: 0.1s;
+}
+
+.overlay-fade-in-new-background:hover .button {
+    transition-delay: 0.2s;
+}
+
+// .bag-item {
+//     width: 100%;
+//     height: 125px;
+//     margin: 0 auto;
+//     padding: 0;
+// }
+// .bag-item img {
+//     position: absolute;
+//     top: 0;
+//     left:0;
+// }
+// .bag-item-inner {
+//     height: 0;
+//     margin: 0 auto;
+//     position: relative;
+//     @include breakpoint(small) {
+//         width: 8rem;
+//         padding-top: 8rem;
+//     }
+//     @include breakpoint(medium) {
+//         width: 9rem;
+//         padding-top: 9rem;
+//     }
+//     @include breakpoint(large) {
+//         width: 10rem;
+//         padding-top: 10rem;
+//     }
+//     @include breakpoint(xxlarge) {
+//         width: 12rem;
+//         padding-top: 12rem;
+//     }
+// }
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//FOXYCART STYLE REVERSALS
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+@mixin foxy-reset-header {
+    font-family: $bodoni-sc-book !important;
+    font-size: 16px !important;
+    font-weight: normal !important;
+    color: $black !important;
+    letter-spacing: .5px !important;
+    font-style: normal !important;
+    text-transform: lowercase !important;
+}
+
+@mixin foxy-reset-header-light {
+    font-family: $bodoni-sc-book !important;
+    font-size: 16px !important;
+    font-weight: normal !important;
+    color: lighten($black, 30%) !important;
+    font-style: normal !important;
+    text-transform: lowercase !important;
+}
+
+@mixin foxy-reset-header-small {
+    font-family: $bodoni-sc-book !important;
+    font-size: 15px !important;
+    font-weight: normal !important;
+    letter-spacing: $standard-kerning;
+    color: $black !important;
+    font-style: normal !important;
+    text-transform: lowercase !important;
+}
+
+@mixin foxy-reset-header-ko {
+    font-family: $bodoni-sc-book !important;
+    font-size: 15px !important;
+    font-weight: normal !important;
+    text-transform: lowercase;
+    color: $white !important;
+    letter-spacing: $standard-kerning;
+    text-transform: lowercase !important;
+}
+
+@mixin foxy-reset-paragraph {
+    font-family: $bodoni-book !important;
+    font-size: 16px !important;
+    font-weight: normal !important;
+    color: $black !important;
+}
+
+@mixin foxy-reset-paragraph-ko {
+    font-family: $bodoni-book !important;
+    font-size: 16px !important;
+    font-weight: normal !important;
+    color: $white !important;
+}
+
+@mixin foxy-reset-text-input {
+    display: block !important;
+    box-sizing: border-box !important;
+    width: 100%;
+    height: 1.5rem !important;
+    padding: 0 0.5rem !important;
+    border: $border-ultralight;
+    margin: 0 0 1rem;
+    font-family: $bodoni-book !important;
+    font-size: 15px !important;
+    color: $dark-gray !important;
+    background-color: $white !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    transition: border-color 0.25s ease-in-out !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    @include -motion-ui-defaults;
+    &:focus {
+        background-color: $white !important;
+        outline: none !important;
+        box-shadow: none !important;
+        transition: border-color 0.25s ease-in-out !important;
+    }
+}
+
+@mixin foxy-reset-button-open {
+    @include button(true,
+    $white,
+    $black,
+    auto);
+    padding: .3rem 1rem .45rem 1rem !important;
+    width: 100% !important;
+    color: #0a0a0a !important;
+    font-family: $bodoni-sc-book !important;
+    text-transform: lowercase !important;
+    letter-spacing: $standard-kerning !important;
+    border: $border-ultralight;
+    border-color: $border-ultralight;
+    vertical-align: middle !important;
+    border-radius: 0 !important;
+    margin: 0 1rem 1rem 0 !important;
+    font-size: 0.9rem !important;
+    background-color: #fefefe !important;
+    background: none !important;
+    text-align: center !important;
+    line-height: 1 !important;
+    cursor: pointer !important;
+    text-shadow: none !important;
+    &:hover {
+        background: $black !important;
+        color: $white !important;
+        border-color: transparent !important;
+    }
+}
+
+@mixin foxy-reset-anchor {
+    font-family: $bodoni-sc-book !important;
+    font-size: 15px !important;
+    color: $black !important;
+    text-transform: lowercase !important;
+    letter-spacing: $standard-kerning !important;
+    @include -motion-ui-defaults;
+    &:hover {
+        color: darken($juju-red, 30%) !important;
+    }
+}
+
+@mixin foxy-reset-button-strip {
+    @include foxy-reset-header-small;
+    color: lighten($black, 20%);
+    border: none !important;
+    background: transparent !important;
+    background-color: transparent !important;
+    padding: 0 !important;
+    &:hover {
+        color: darken($juju-red, 30%) !important;
+    }
+}
+
+#fc .fc-container__row,
+#fc .fc-checkout__main,
+#fc .fc-sidebar--cart .fc-transaction,
+#fc .fc-sidebar--cart .fc-address-entry,
+#fc .fc-sidebar--cart .fc-actions--payment,
+#fc .fc-transaction__shipping-address,
+#fc .fc-cart__item__options {
+    margin: 0 !important;
+}
+
+#fc .container,
+#fc .fc-container,
+#fc .fc-cart__item,
+#fc .fc-transaction,
+#fc .fc-sidebar--cart .fc-transaction,
+#fc .fc-sidebar--cart .fc-address-entry,
+#fc .fc-sidebar--cart .fc-actions--payment,
+#fc .fc-cart__item__details,
+#fc .fc-subtotal__label {
+    padding: 0 !important;
+}
+
+#fc .fc-cart__item {
+    border-bottom: $border-ultralight;
+    margin-bottom: 1rem !important;
+}
+
+.fc-cart__item__details-and-image #fc .fc-cart__item__details {
+    padding-left: 0 !important;
+}
+
+#fc .fc-cart__title__header,
+#fc .fc-transaction__header,
+.fc-location fc-form-control,
+.fc-container__grid--country,
+.fc-form-control .fc-location,
+.fc-form-label .fc-form-label--city-options {
+    display: none !important;
+}
+
+#fc table {
+    margin-bottom: 0;
+}
+
+table thead,
+table tbody,
+table tfoot {
+    border: none;
+    border-left: none !important;
+    border-right: none !important;
+}
+
+#fc h4,
+#fc .h4,
+#fc h5,
+#fc .h5,
+#fc h6,
+#fc .h6,
+.fc-order-quantity,
+.fc-order-quantity span,
+.fc-subtotal__value,
+#fc .fc-transaction__total,
+{
+    @include foxy-reset-header;
+}
+
+.fc-subtotal__value {
+    padding: 0 !important;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.fc-cart__title.fc-container__grid {
+    text-align: center;
+    margin-bottom: 2rem !important;
+}
+
+.fc-order-quantity {
+    width: inherit;
+    display: initial;
+    padding: .25rem .65rem !important;
+    border: $border-ultralight;
+    border-radius: 15px;
+}
+
+#fc .fc-subtotal__label {
+    @include foxy-reset-header;
+}
+
+.fc-subtotal__label h5 {
+    margin-bottom: .25rem !important;
+}
+
+#fc .fc-subtotal--row {
+    border-bottom: $border-ultralight;
+}
+
+#fc .fc-input-group-container--active {
+    border-radius: 0 !important;
+}
+
+.mm-navbar {
+    border-bottom: none !important;
+    text-align: center;
+    line-height: 33px;
+    height: 40px;
+    padding: 0 !important;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100% !important;
+}
+
+[data-fc-sidecart] .fc-sidecart-only-fixed {
+    width: 100% !important;
+}
+
+#fc .fc-input-group-container--radio input[type="radio"] {
+    margin: .55rem .5rem .5rem 0 !important;
+}
+
+#fc .fc-shipping-rates__rate .fc-form-label--shipping-rate {
+    padding-left: 0 !important;
+    display: flex !important;
+}
+
+#fc .fc-cart__item__quantity .fc-cart__item__quantity__input.fc-form-control {
+    float: right !important;
+}
+
+.fc-form-label--shipping-rate {
+    display: flex !important;
+    padding-left: .5rem !important;
+}
+
+.fc-form-label--postal-code {
+    display: none !important;
+}
+
+.fc-shipping-rates__rate__name,
+.fc-shipping-rates__rate__value {
+    float: none !important;
+    @include foxy-reset-header-light;
+    text-align: right;
+}
+
+.fc-input-group-container--active .fc-shipping-rates__rate__value {
+    color: $black !important;
+}
+
+[data-fc-sidecart] .fc-fixed-button-left,
+[data-fc-sidecart] .fc-fixed-button-right {
+    width: 50% !important;
+    height: 33px !important;
+}
+
+#fc .fc-address-entry .fc-postal-code-entry__submit button {
+    text-shadow: none !important;
+    border: none !important;
+    background: $medium-gray !important;
+    border-radius: 0 !important;
+    padding-bottom: 0 !important;
+    margin-left: 0 !important;
+    height: 28px;
+    padding: 0 5px !important;
+    margin-top: -1px;
+    @include foxy-reset-header-ko;
+    @include -motion-ui-defaults;
+    &:hover {
+        background: $black !important;
+    }
+}
+
+#fc .fc-address-entry .fc-alert-container--error .fc-alert--danger {
+    background: $medium-gray !important;
+    text-shadow: none !important;
+    @include foxy-reset-paragraph-ko;
+}
+
+.fc-shipping-rates__rate {
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border-bottom: $border-ultralight;
+}
+
+.fc-fixed-button-left--text,
+[data-fc-sidecart] .fc-fixed-button-left span {
+    @include foxy-reset-anchor;
+    &:hover {
+        background: transparent !important;
+    }
+}
+
+[data-fc-sidecart] .fc-fixed-button-right {
+    width: 50% !important;
+}
+
+#fc .fc-sidebar--cart .fc-transaction,
+#fc .fc-sidebar--cart .fc-address-entry {
+    border-bottom: none !important;
+}
+
+#fc .fc-sidebar {
+    background: $white !important;
+}
+
+#fc .fc-btn-action {
+    padding-top: .3rem !important;
+    padding-right: 1rem !important;
+    padding-bottom: .45rem !important;
+    padding-left: 1rem !important;
+}
+
+#fc .fc-fixed-button-right .fc-btn-action {
+    background-color: $medium-gray !important;
+    background: $medium-gray !important;
+    letter-spacing: $standard-kerning;
+    @include foxy-reset-header-ko;
+    @include -motion-ui-defaults;
+    &:hover {
+        background-color: $black !important;
+        background: $black !important;
+        color: $white !important;
+    }
+}
+
+#fc .form-control,
+#fc .fc-form-control,
+#fc .fc-form-control,
+#fc .fc-form-control:focus {
+    @include foxy-reset-text-input;
+    min-height: 28px !important;
+}
+
+#fc .fc-cart__items .fc-cart__item__remove a,
+#fc .fc-transaction__ui__toggle {
+    @include foxy-reset-button-strip;
+    &:focus {
+        outline: none !important;
+    }
+}
+
+#fc h4 {
+    color: $black !important;
+    font-family: $bodoni-sc-book !important;
+    text-transform: lowercase;
+    font-size: 16px !important;
+}
+
+.fc-alert li {
+    @include foxy-reset-paragraph-ko;
+}
+
+#fc p,
+#fc .fc-cart__item__name,
+#fc .fc-transaction__shipping-address {
+    @include foxy-reset-paragraph;
+    text-transform: none !important;
+}
+
+#fc .fc-transaction__shipping-address {
+    border: none !important;
+    text-align: center;
+    background: $light-gray;
+    border-radius: 0 !important;
+    margin-bottom: .5rem !important;
+}
+
+[data-fc-sidecart] #fc-cart {
+    padding-top: 3rem !important;
+}
+
+#fc .fc-sidecart-button:hover {
+    background: transparent !important;
+    background-color: !important;
+}
+
+.mm-iconpanel .mm-panel.mm-opened {
+    border: none !important;
+    width: 100% !important;
+    min-width: 100% !important;
+}
+
+#fc .fc-sidebar,
+#fc .fc-messages .fc-alert li {
+    background-color: transparent !important;
+}
+
+#fc .fc-messages__empty-notification {
+    background: $white !important;
+    background-color: $white !important;
+    border: none !important;
+    border-radius: 0 !important;
+}
+
+#fc .fc-messages__empty-notification a {
+    font-family: $bodoni-book !important;
+    font-size: 2rem !important;
+    line-height: 2.25rem;
+    color: $dark-gray !important;
+    @include -motion-ui-defaults;
+    &:hover {
+        text-decoration: none !important;
+        color: darken($juju-red, 30%);
+    }
+}
+
+#fc .fc-input-group-container--radio input[type="radio"] {}
+
+#fc .fc-sidebar .fc-actions--payment {
+    position: relative;
+    margin-top: 2rem !important;
+    padding: 0 !important;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+}
+
+#fc .fc-action--checkout--button,
+#fc .fc-button--subscription-cancel,
+#fc .fc-button--submit {
+    @include foxy-reset-button-open;
+    .fc-svg-icon {
+        display: none !important;
+    }
+}
+
+#fc .fc-transaction__total .fc-subtotal__value {
+    padding: 0 !important;
+    @include foxy-reset-header;
+}
+
+[data-fc-sidecart] #fc-cart.fc-container {
+    background-color: transparent !important;
+}
+
+#fc .fc-messages .fc-alert {
+    margin: 0 !important;
+    padding: 1rem !important;
+    background-color: lighten($black, 30%) !important;
+}
+
+#fc .alert,
+#fc .fc-alert,
+#fc .fc-alert--danger {
+    background-color: lighten($black, 30%) !important;
+    border: none !important;
+    border-radius: 0 !important;
+}
+
+#fc .fc-svg-icon.fc-icon-large {
+    height: .75rem !important;
+    width: .75rem !important;
+}
+
+.fc-form-label .fc-form-label--postal-code {
+    position: relative !important;
+}
+
+#fc .fc-sidebar .fc-form-control {
+    border: $border-ultralight !important;
+}
+
+ul.fc-foxycomplete-list {
+    border: $border-ultralight !important;
+    top: 27px !important;
+}
+
+#fc .fc-foxycomplete-list li {
+    border-top: $border-ultralight !important;
+    height: 28px !important;
+}
+
+#fc .fc-foxycomplete-list li p {
+    padding: .15rem .5rem !important;
+}
+
+#fc .sr-only,
+#fc .fc-form-label--city-options,
+#fc .fc-form-label--city,
+#fc .fc-form-label--region,
+#fc .fc-form-label--customer-email,
+#fc .fc-form-label--customer-password,
+#fc .fc-form-label--new-cc-number,
+#fc .fc-form-label--new-cc-exp-year,
+#fc .fc-form-label--plastic-new__text,
+#fc .fc-container__grid--input--first-name .fc-form-label,
+#fc .fc-container__grid--input--last-name .fc-form-label,
+#fc .fc-container__grid--input--phone .fc-form-label,
+#fc .fc-container__grid--input--company .fc-form-label,
+#fc .fc-container__grid--input--tax-id .fc-form-label,
+#fc .fc-container__grid--input--address1 .fc-form-label,
+#fc .fc-container__grid--label--address2 .fc-form-label {
+    position: relative !important;
+    overflow: inherit !important;
+    display: initial !important;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//INTRO/QUOTE BLOCKS
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#first {
+    background: lighten($juju-caramel, 10%);
+}
+
+#first .header-logo {
+    position: relative;
+    width: 100%;
+    z-index: 100;
+}
+
+#first .quote-block {
+    padding: 4rem 0;
+    position: relative;
+}
+
+#first .quote-block p {
+    color: $white !important;
+    @include -motion-ui-defaults;
+    @include breakpoint(small) {
+        font-size: 1.5rem;
+    }
+    @include breakpoint(medium) {
+        font-size: 2rem;
+    }
+    @include breakpoint(large) {
+        font-size: 2.5rem;
+    }
+    @include breakpoint(xlarge) {
+        font-size: 3.25rem;
+    }
+}
+
+#first .quote-block blockquote span {
+    color: $white !important;
+    @include -motion-ui-defaults;
+}
+
+#second .quote-block {
+    margin-top: 60px;
+    padding: 4rem 0;
+    position: relative;
+    background: $red-ash;
+    @include -motion-ui-defaults;
+}
+
+#second .quote-block p {
+    color: lighten($red-ash, 20%) !important;
+    @include -motion-ui-defaults;
+    @include breakpoint(small) {
+        font-size: 1.5rem;
+    }
+    @include breakpoint(medium) {
+        font-size: 2rem;
+    }
+    @include breakpoint(large) {
+        font-size: 2.5rem;
+    }
+    @include breakpoint(xlarge) {
+        font-size: 3.25rem;
+    }
+}
+
+#second .quote-block blockquote span {
+    color: lighten($red-ash, 25%) !important;
+    @include -motion-ui-defaults;
+}
+
+#first .quote-block p[Animate="0"],
+#second .quote-block p[Animate="0"] {
+    transition-delay: .5s;
+    opacity: 0;
+    transform: translate3d(0, 4rem, 4rem);
+}
+
+#first .quote-block p[Animate="1"],
+#second .quote-block p[Animate="1"] {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+#first .quote-block p[Animate="2"],
+#second .quote-block p[Animate="2"] {
+    opacity: 0;
+    transform: translate3d(0, -2rem, -2rem);
+}
+
+#first .quote-block blockquote span[Animate="0"],
+#second .quote-block blockquote span[Animate="0"] {
+    transition-delay: 1s;
+    opacity: 0;
+    transform: translate3d(0, 4rem, 4rem);
+}
+
+#first .quote-block blockquote span[Animate="1"],
+#second .quote-block blockquote span[Animate="1"] {
+    opacity: 0;
+    transform: translate3d(0, 0, 0);
+}
+
+#first .quote-block blockquote span[Animate="2"],
+#second .quote-block blockquote span[Animate="2"] {
+    opacity: 0;
+    transform: translate3d(0, -2rem, -2rem);
+}
+
+// p.dropcap:first-child:first-letter {
+//     color: darken($juju-red, 40%);
+//     font-family: $bodoni-book;
+//     @include breakpoint(small) {
+//         float: none;
+//         padding-right: 0;
+//         line-height: 40px;
+//         font-size: 45px;
+//     }
+//     @include breakpoint(medium) {
+//         line-height: 55px;
+//         margin-right: -9px;
+//         font-size: 80px;
+//     }
+//     @include breakpoint(large) {
+//         float: left;
+//         padding-right: 23px;
+//         margin-right: -50px;
+//         line-height: 20px;
+//         font-size: 120px;
+//     }
+//     @include breakpoint(xlarge) {
+//         line-height: 45px;
+//         font-size: 200px;
+//         padding-right: 0;
+//         margin-right: -80px;
+//     }
+// }
+// #introblock p.dropcap,
+// #introblock span {
+//     color: lighten($juju-peach, 10%) !important;
+// }
+#introblock p:before {
+    box-sizing: content-box !important;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 30px;
+    height: 1px;
+    border-top: 1px solid;
+}
+
+#introblock p:after {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 30px;
+    height: 1px;
+    border-top: 1px solid;
+}
+
+#heroSlider {
+    display: none;
+}
+
+#mobileProductSlider {
+    overflow: hidden;
+    width: 100% !important;
+}
+
+blockquote {
+    @include -motion-ui-defaults;
+}
+
+blockquote[Animate="0"] {
+    @include breakpoint(medium) {
+        opacity: 0;
+        @include -motion-ui-defaults;
+    }
+}
+
+blockquote[Animate="1"] {
+    @include breakpoint(medium) {
+        opacity: 1;
+    }
+}
+
+blockquote[Animate="2"] {
+    @include breakpoint(medium) {
+        opacity: 1;
+    }
+}
+
+#first .quote-block>.columns,
+#second .quote-block>.columns {
+    position: relative;
+    height: 100%;
+    display: block;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//PRODUCT BLOCK
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#section2 {
+    background-color: $white;
+}
+
+section#products .product {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//PRODUCT SLIDER
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+.rsDefault,
+.rsDefault .rsOverflow,
+.rsDefault .rsSlide,
+.rsDefault .rsVideoFrameHolder,
+.rsDefault .rsThumbs {
+    background: $white !important;
+}
+
+.rsArrowIcn {
+    @include -motion-ui-defaults;
+}
+
+.visibleNearby {
+    width: 100%;
+    background: transparent;
+    color: $juju-paper;
+}
+
+#product-caption {
+    background-color: $white;
+}
+
+.rsDefault .rsArrow {
+    width: 25% !important;
+}
+
+section#products .rsGCaption {
+    @include breakpoint(small) {
+        position: relative;
+        width: 100%;
+    }
+    @include breakpoint(medium) {
+        width: 18rem;
+        right: 2.1rem;
+    }
+    @include breakpoint(large) {
+        right: 2.1rem;
+    }
+    @include breakpoint(xlarge) {
+        position: absolute;
+        top: 4rem;
+        z-index: 100;
+        right: 22rem;
+        left: initial;
+        top: 5rem;
+        width: 18rem;
+        min-height: 250px;
+    }
+}
+
+section#products .rsGCaption {
+    display: table;
+    text-align: left;
+    font-family: $bodoni-sc-book;
+    font-size: 15px !important;
+    letter-spacing: 2px;
+    padding: 0 !important;
+    color: $black !important;
+    background: transparent !important;
+}
+
+section#products .rsGCaption p {
+    margin-bottom: 0;
+}
+
+section#products .rsGCaption u {
+    border-bottom: 1px solid;
+    text-decoration: initial;
+}
+
+section#products .rsGCaption span.product-title {
+    color: darken($warm-ash, 20%);
+}
+
+section#products .rsGCaption span {
+    display: block;
+    font-family: $bodoni-book;
+    color: lighten($black, 60%);
+    clear: both;
+    font-size: 25px;
+    letter-spacing: initial;
+    text-decoration: initial;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    @include breakpoint(small) {
+        font-size: 15px;
+        margin: 0 auto;
+    }
+    @include breakpoint(medium) {
+        font-size: 14px;
+    }
+    @include breakpoint(large) {
+        font-size: 35px;
+        line-height: 40px;
+    }
+    @include breakpoint(xlarge) {
+        font-size: 40px;
+        line-height: 45px;
+    }
+}
+
+section#products .rsGCaption .product-description {
+    margin-top: .5rem;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+// .rsGCaption p {
+//     line-height: inherit;
+//     margin: 0 !important;
+//     max-width: 16rem;
+// }
+section#products .rsGCaption span.product-title.cleanser-color {
+    color: darken($juju-red, 15%);
+}
+
+// section#products .rsGCaption span.product-title.cleanser-color~.rsABlock {
+//     color: $juju-red;
+// }
+section#products .rsGCaption span.product-title.toner-color {
+    color: darken($juju-green, 15%);
+}
+
+// section#products .rsGCaption span.product-title.toner-color~.rsABlock {
+//     color: $juju-green;
+// }
+section#products .rsGCaption span.product-title.cream-color {
+    color: darken($juju-violet, 15%);
+}
+
+// section#products .rsGCaption span.product-title.cream-color~.rsABlock {
+//     color: $juju-violet;
+// }
+section#products .rsGCaption span.product-title.scrub-color {
+    color: darken($juju-yellow, 15%);
+}
+
+// section#products .rsGCaption span.product-title.scrub-color~.rsABlock {
+//     color: $juju-yellow;
+// }
+section#products .rsGCaption span.product-title.eye-serum-color {
+    color: darken($juju-blue, 15%);
+}
+
+// section#products .rsGCaption span.product-title.eye-serum-color~.rsABlock {
+//     color: $juju-blue;
+// }
+section#products .rsGCaption span.product-title.dry-serum-color {
+    color: darken($juju-orange, 15%);
+}
+
+// section#products .rsGCaption span.product-title.dry-serum-color~.rsABlock {
+//     color: $juju-orange;
+// }
+section#products .rsGCaption span.product-title.family-color {
+    color: $juju-caramel;
+}
+
+// section#products .rsGCaption span.product-title.family-color~.rsABlock {
+//     color: $warm-ash;
+// }
+section#products .rsCaption {
+    width: auto;
+    @include -motion-ui-defaults;
+}
+
+section#products .rsCaption[Animate="0"] {
+    @include breakpoint(medium) {
+        opacity: 0;
+        transition-delay: 1s;
+        transform: translate3d(0, 2rem, 2rem);
+    }
+}
+
+section#products .rsCaption[Animate="1"] {
+    @include breakpoint(medium) {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.rsSlide {
+    opacity: 0;
+    @include -motion-ui-defaults;
+}
+
+.rsSlide.rsActiveSlide {
+    opacity: 1;
+}
+
+.rsActiveSlide .rsLink {
+    display: block !important;
+    cursor: url(../img/link-cursor.png), auto;
+}
+
+
+/* Non-linear resizing on smaller screens */
+
+@media screen and (min-width: 0px) and (max-width: 900px) {
+    #gallery-1 {
+        padding: 12px 0 12px;
+    }
+    #gallery-1 .rsOverflow,
+    .royalSlider#gallery-1 {
+        height: 400px !important;
+    }
+}
+
+@media screen and (min-width: 0px) and (max-width: 500px) {
+    #gallery-1 .rsOverflow,
+    .royalSlider#gallery-1 {
+        height: 300px !important;
+    }
+}
+
+.product-select {
+    width: 18rem;
+    border: 1px solid $dark-gray;
+    right: 0;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    position: absolute;
+    z-index: 1000;
+}
+
+.product-select:after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border: inset 4px;
+    border-color: $medium-gray transparent transparent;
+    border-top-style: solid;
+    position: absolute;
+    top: 0.5rem;
+    right: 5px;
+}
+
+//PRODUCT SELECTOR
+.product-select ul {
+    margin: 0;
+    padding: .5rem 0;
+    border-top: 1px solid $dark-gray;
+}
+
+.product-select ul li {
+    padding: .25rem .5rem;
+    font-size: 11px;
+    color: $dark-gray;
+}
+
+.product-select ul li:hover {
+    color: $black;
+}
+
+.product-select label {
+    padding: 0 .5rem;
+    font-size: 11px;
+    color: $black;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//PRODUCT PAGE
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+.row.full {
+    min-width: 100% !important;
+    max-width: none !important;
+}
+
+.product-page-content {
+    overflow-y: scroll !important;
+}
+
+.shopping-item {
+    width: 100%;
+}
+
+.shopping-item img {
+    @include breakpoint(small) {
+        padding: 2rem auto 0 auto;
+    }
+    @include breakpoint(medium) {
+        max-height: 400px;
+        padding: 3rem auto 60px auto;
+    }
+    @include breakpoint(large) {
+        max-height: 600px;
+        padding: 4% auto 80px auto;
+    }
+    @include breakpoint(xlarge) {
+        max-height: 600px;
+        padding: 4% auto 80px auto;
+    }
+    @include breakpoint(xxlarge) {
+        max-height: 750px;
+        padding: 5% auto 60px auto;
+    }
+    @include -motion-ui-defaults;
+}
+
+.sidebar {
+    display: inline-block;
+    padding: 0 1.7rem;
+    background-color: transparent;
+    overflow-y: scroll;
+    @include breakpoint(small) {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    @include breakpoint(medium) {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+.sidebar-content {
+    margin-bottom: 4rem;
+    @include breakpoint(small) {
+        margin-top: 1rem;
+    }
+    @include breakpoint(medium) {
+        margin-top: 2rem;
+    }
+    @include breakpoint(large) {
+        margin-top: 5rem;
+    }
+    @include breakpoint(xlarge) {
+        margin-top: 6rem;
+    }
+    position: relative;
+}
+
+.sidebar-content h1 {
+    font-family: $bodoni-book;
+}
+
+.sidebar-content h1.product-name {
+    font-size: 21px;
+}
+
+.sidebar-content h2 {
+    text-transform: lowercase;
+    letter-spacing: $standard-kerning;
+}
+
+.sidebar-content h2.price {
+    letter-spacing: inherit;
+}
+
+.sidebar-content h1,
+.sidebar-content h2 {
+    font-size: 15px;
+    margin: 0;
+}
+
+.sidebar-content ul,
+.sidebar-content li,
+.sidebar-content li a {
+    margin: 0;
+}
+
+.sidebar-content .button {
+    margin: 1rem 0 0;
+}
+
+.sidebar {
+    @include breakpoint(small) {
+        width: 100%;
+        padding-bottom: 47px;
+    }
+    @include breakpoint(large) {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 20rem;
+    }
+    @include breakpoint(xlarge) {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 22rem;
+    }
+}
+
+.sidebar-content {
+    text-align: left;
+}
+
+.sidebar-content .product-summary {
+    padding-top: 2rem;
+}
+
+[type='number'],
+[type='number']:focus {
+    display: inline-block;
+    width: 4rem;
+    border: none !important;
+    box-shadow: none;
+    margin: 0;
+    padding: 0 0 0 .5rem;
+}
+
+[type='text'] {
+    padding: 0 !important;
+    color: $black !important;
+    border: none !important;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+}
+
+label {
+    font-family: $bodoni-sc-book;
+    font-size: 15px;
+    text-transform: lowercase;
+}
+
+.accordion-title {
+    border-bottom: none;
+    background: transparent;
+}
+
+.accordion-title:hover,
+.accordion-title:focus {
+    background: transparent !important;
+}
+
+.is-accordion-submenu-parent[aria-expanded="true"] .accordion-title::before {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    transition: $single-transition;
+}
+
+.accordion-title::before {
+    right: 0;
+    font-family: $bodoni-book;
+    font-size: 15px;
+    text-align: center;
+    -webkit-transform-origin: 50% 50% !important;
+    -ms-transform-origin: 50% 50% !important;
+    transform-origin: 50% 50% !important;
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -o-transform: rotate(0);
+    -ms-transform: rotate(0);
+    transform: rotate(0);
+    transition: $single-transition;
+}
+
+.is-accordion-submenu-parent > a::after {
+    display: none !important;
+}
+
+// .accordion-title:after {
+//     content: "+";
+//     font: $bodoni-sc-book;
+//     font-size: 1rem;
+//     position: absolute;
+//     right: 0;
+//     top: 0;
+//     color: $dark-gray;
+//     -webkit-transform: rotate(45deg);
+//     -moz-transform: rotate(45deg);
+//     -o-transform: rotate(45deg);
+//     -ms-transform: rotate(45deg);
+//     transform: rotate(45deg);
+//     transition: $single-transition;
+// }
+.sidebar .more-info {
+    margin-bottom: .5rem;
+}
+
+.more-info li a {
+    color: $medium-gray;
+}
+
+.sidebar .menu {
+    margin: 0;
+}
+
+.sidebar .menu a,
+.sidebar #related a {
+    @include anchor;
+    text-transform: lowercase;
+    padding: .25rem 0;
+    transition: $single-transition;
+}
+
+// .sidebar .menu a:hover,
+// .sidebar .menu a:active,
+// .sidebar #related a:hover,
+// .sidebar #related a:active {
+//     color: darken($juju-red, 30%);
+// }
+.sidebar #related a,
+.sidebar #related a {
+    font-family: $bodoni-book;
+    text-transform: none;
+    letter-spacing: initial;
+}
+
+.sidebar .add-to-cart {
+    margin: .5rem 0;
+}
+
+form#add-to-cart-form {}
+
+.sidebar span.badge.cleanser-badge,
+.sidebar span.badge.toner-badge,
+.sidebar span.badge.cream-badge,
+.sidebar span.badge.scrub-badge,
+.sidebar span.badge.eye-serum-badge,
+.sidebar span.badge.dry-serum-badge,
+.sidebar span.badge.complete-badge {
+    min-width: 10px;
+    min-height: 10px;
+    margin-right: .5rem;
+}
+
+.sidebar span.badge.cleanser-badge {
+    background: $juju-red;
+}
+
+.sidebar span.badge.toner-badge {
+    background: $juju-green;
+}
+
+.sidebar span.badge.scrub-badge {
+    background: $juju-yellow;
+}
+
+.sidebar span.badge.cream-badge {
+    background: $juju-violet;
+}
+
+.sidebar span.badge.eye-serum-badge {
+    background: $juju-blue;
+}
+
+.sidebar span.badge.dry-serum-badge {
+    background: $juju-orange;
+}
+
+.sidebar span.badge.complete-badge {
+    background: $juju-orange;
+}
+
+.sidebar .related-link {
+    @include anchor;
+    font-family: $bodoni-book !important;
+    letter-spacing: initial !important;
+}
+
+.pullquote {
+    position: absolute;
+    left: 0;
+    max-width: 18rem;
+    bottom: 60px;
+    // @include breakpoint(medium) {
+    //     position: relative;
+    //     width: 100%;
+    // }
+    // @include breakpoint(large) {
+    //     // bottom: calc(5% + 47px);
+    //     // left: 5%;
+    // }
+    // border: $border-light;
+    // background-color: darken($warm-ash,25%);
+}
+
+// .pullquote:after {
+//     content: '';
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     background: $white;
+//     opacity: .3;
+// }
+blockquote p,
+blockquote span {
+    font-family: $bodoni-book;
+    color: $dark-gray !important;
+    line-height: initial;
+}
+
+blockquote p {
+    text-align: center;
+    @include breakpoint(medium) {
+        font-size: 18px;
+    }
+    @include breakpoint(large) {
+        font-size: 20px;
+    }
+    @include breakpoint(xlarge) {
+        font-size: 18px;
+    }
+    @include breakpoint(xxlarge) {
+        font-size: 20px;
+    }
+    margin-bottom: 0;
+}
+
+blockquote {
+    @include breakpoint(medium) {
+        margin-bottom: .5rem;
+    }
+    border: none;
+    text-align: center;
+}
+
+blockquote span {
+    display: inline-block;
+    font-size: 15px;
+    line-height: 15px;
+    padding: 1rem 0;
+    text-align: center;
+    @include small-header;
+    @include breakpoint(small) {
+        margin-bottom: .5rem;
+    }
+    @include breakpoint(medium) {
+        margin-bottom: .5rem;
+    }
+    @include breakpoint(large) {
+        margin-bottom: 0;
+    }
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//STORY BLOCK
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+.skrollr-body {
+    width: 100%;
+}
+
+.section-header {
+    color: darken($book, 45%);
+    background-color: $book;
+    margin: 0;
+    @include -motion-ui-defaults;
+}
+
+#third #story-header {
+    background-color: $warm-ash;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+#third:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    margin-left: -15px;
+    width: 30px;
+    height: 30px;
+    background: url(../img/_story/flower2.svg) no-repeat top left;
+    background-size: contain;
+    opacity: .3;
+    @include breakpoint(small) {
+        top: 100px;
+    }
+    @include breakpoint(medium) {
+        top: 110px;
+    }
+    @include breakpoint(large) {
+        top: 190px;
+        margin-left: -16.5px;
+        width: 35px;
+        height: 35px;
+    }
+}
+
+#third .section-wrapper {
+    @include breakpoint(small) {
+        margin-top: 10rem;
+    }
+    @include breakpoint(large) {
+        margin-top: 0;
+    }
+}
+
+#book-left,
+#book-right {
+    @include breakpoint(small) {
+        margin-top: 0;
+        padding: 0;
+    }
+    @include breakpoint(large) {
+        margin-top: 19rem;
+        padding: inherit;
+    }
+}
+
+span.caption {
+    @include breakpoint(small) {
+        padding: 1rem 0;
+        line-height: 15px;
+    }
+    @include breakpoint(large) {
+        padding: .25rem 0;
+    }
+    display: block;
+    font-family: $bodoni-sc-book;
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-align: center;
+    text-transform: lowercase;
+    color: lighten($black,
+    20%);
+    @include -motion-ui-defaults;
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s;
+}
+
+#third p:before,
+#third p:after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 200px;
+    left: 50%;
+    margin-left: -100px;
+    -webkit-transform: scaleX(0);
+    -moz-transform: scaleX(0);
+    -ms-transform: scaleX(0);
+    -o-transform: scaleX(0);
+    transform: scaleX(0);
+    @include -motion-ui-defaults;
+}
+
+#third p:before {
+    border-top: 1px solid darken($warm-ash, 20%);
+    top: -30px;
+}
+
+#third p:after {
+    border-bottom: 1px solid darken($warm-ash, 20%);
+    bottom: -30px;
+}
+
+#third .columns .cell {
+    float: left;
+}
+
+#third .columns .cell.right {
+    float: right !important;
+}
+
+// #third .columns .cell:nth-child(even) {
+//     float: left;
+// }
+#third[Animate="0"] {
+    @include breakpoint(medium) {
+        opacity: 0;
+    }
+}
+
+#third[Animate="1"] {
+    @include breakpoint(medium) {
+        opacity: 1;
+    }
+}
+
+#products .section-header[Animate="0"] {
+    @include breakpoint(medium) {
+        opacity: 0;
+        transform: translate3d(0, 2rem, 2rem);
+    }
+}
+
+#products .section-header[Animate="1"] {
+    @include breakpoint(medium) {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+#third #story-header.section-header[Animate="0"] {
+    @include breakpoint(medium) {
+        opacity: 0;
+        position: relative;
+        transform: translate3d(0, 2rem, 2rem);
+    }
+}
+
+#third #story-header.section-header[Animate="1"] {
+    @include breakpoint(medium) {
+        opacity: 1;
+        position: relative;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+#third #story-header.section-header[Animate="2"] {
+    @include breakpoint(medium) {
+        opacity: 1;
+        font-size: 15px;
+        color: $black;
+        background-color: $warm-ash;
+        position: fixed;
+        padding: 2rem 0;
+        box-shadow: 0 1px 5px 0 rgba(0, 0, 0, .2);
+        top: 0;
+        left: 0;
+        z-index: 20;
+    }
+}
+
+#third .cell {
+    @include breakpoint(large) {
+        margin-bottom: 6rem;
+    }
+    @include breakpoint(xlarge) {
+        margin-bottom: 8rem;
+    }
+    @include -motion-ui-defaults;
+}
+
+#third .cell[Animate="0"] {
+    @include breakpoint(medium) {
+        opacity: 0;
+        transform: translate3d(0, 3rem, 3rem);
+    }
+}
+
+#third .cell[Animate="1"] {
+    @include breakpoint(medium) {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+#third .cell[Animate="2"] {
+    @include breakpoint(medium) {
+        opacity: 0;
+    }
+}
+
+#third .cell[Animate="0"] p.dropcap:before,
+#third .cell[Animate="0"] p.dropcap:after {
+    @include breakpoint(medium) {
+        -webkit-transform: scaleX(0);
+        -moz-transform: scaleX(0);
+        -ms-transform: scaleX(0);
+        -o-transform: scaleX(0);
+        transform: scaleX(0);
+    }
+}
+
+#third .cell[Animate="1"] p.dropcap:before,
+#third .cell[Animate="1"] p.dropcap:after {
+    @include breakpoint(medium) {
+        -webkit-transform: scaleX(1);
+        -moz-transform: scaleX(1);
+        -ms-transform: scaleX(1);
+        -o-transform: scaleX(1);
+        transform: scaleX(1);
+    }
+}
+
+#third p {
+    @include breakpoint(small) {
+        font-size: 12px;
+    }
+    @include breakpoint(medium) {
+        font-size: 14px;
+    }
+    @include breakpoint(large) {
+        font-size: 16px;
+    }
+    @include breakpoint(xlarge) {
+        font-size: 20px;
+    }
+    @include breakpoint(xxlarge) {
+        font-size: 25px;
+    }
+}
+
+#third p {
+    color: $splash-logo;
+}
+
+#third p.dropcap {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+#third p.dropcap:first-child:first-letter {
+    color: darken($juju-red, 40%);
+    font-family: $bodoni-book;
+    @include breakpoint(small) {
+        float: left !important;
+        padding-right: 10px !important;
+        line-height: 40px;
+        font-size: 45px;
+    }
+    @include breakpoint(medium) {
+        line-height: 35px;
+        font-size: 60px;
+    }
+    @include breakpoint(large) {
+        padding-top: 4px;
+        padding-bottom: 1rem;
+        padding-right: 10px;
+        padding-left: 3px;
+        line-height: 30px;
+        font-size: 75px;
+    }
+    @include breakpoint(xlarge) {
+        line-height: 61px;
+        font-size: 100px;
+    }
+}
+
+#third .image-object {
+    height: 0;
+    margin: 0 auto;
+    position: absolute;
+    z-index: -1;
+}
+
+#third .image-object svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include -motion-ui-defaults;
+}
+
+#third .image-object.first svg path {
+    fill: $juju-light-green;
+    @include -motion-ui-defaults;
+}
+
+#third .image-object.second svg path {
+    fill: $juju-light-green;
+    @include -motion-ui-defaults;
+}
+
+#third .image-object.third svg path {
+    fill: $juju-light-green;
+    @include -motion-ui-defaults;
+}
+
+#third .image-object.first {
+    top: 20%;
+    left: 1rem;
+    @include breakpoint(small) {
+        width: 4rem;
+        padding-top: 4rem;
+    }
+    @include breakpoint(medium) {
+        width: 7rem;
+        padding-top: 7rem;
+    }
+    @include breakpoint(large) {
+        width: 10rem;
+        padding-top: 10rem;
+    }
+    @include breakpoint(xlarge) {
+        width: 30rem;
+        padding-top: 30rem;
+    }
+}
+
+#third .image-object.second {
+    top: 35%;
+    right: 45%;
+    @include breakpoint(small) {
+        width: 8rem;
+        padding-top: 8rem;
+    }
+    @include breakpoint(medium) {
+        width: 12rem;
+        padding-top: 12rem;
+    }
+    @include breakpoint(large) {
+        width: 17rem;
+        padding-top: 17rem;
+    }
+    @include breakpoint(xlarge) {
+        width: 30rem;
+        padding-top: 30rem;
+    }
+}
+
+#third .image-object.third {
+    top: 70%;
+    left: 50%;
+    @include breakpoint(small) {
+        width: 8rem;
+        padding-top: 8rem;
+    }
+    @include breakpoint(medium) {
+        width: 9rem;
+        padding-top: 9rem;
+    }
+    @include breakpoint(large) {
+        width: 10rem;
+        padding-top: 10rem;
+    }
+    @include breakpoint(xlarge) {
+        width: 30rem;
+        padding-top: 30rem;
+    }
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//CHECKOUT
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#checkout-forms,
+#cart-forms {
+    padding-top: 5rem;
+}
+
+.bulletin {
+    @include breakpoint(small) {
+        font-size: 2rem;
+        line-height: 2rem;
+    }
+    @include breakpoint(medium) {
+        font-size: 2.25rem;
+        line-height: 2.1rem;
+    }
+    @include breakpoint(large) {
+        font-size: 2.75rem;
+        line-height: 2.65rem;
+    }
+    @include breakpoint(xlarge) {
+        font-size: 3rem;
+        line-height: 2.8rem;
+    }
+    text-align: center;
+    color: darken($dark-gray,
+    5%);
+    padding: 35% 4rem 0 4rem;
+}
+
+#simplecart td {
+    font-size: 15px;
+    font-family: $bodoni-book;
+    font-weight: normal !important;
+}
+
+#simplecart th {
+    font-size: 15px;
+    font-family: $bodoni-sc-book;
+    font-weight: normal !important;
+    text-align: left;
+    letter-spacing: $standard-kerning;
+}
+
+#simplecart table tbody {
+    border: none !important;
+}
+
+#simplecart table tbody td,
+#simplecart table tbody tr.heading th {
+    @include breakpoint(small) {
+        padding-left: .5rem;
+        padding-right: .5rem;
+    }
+    @include breakpoint(medium) {
+        padding-left: .25rem;
+        padding-right: .25rem;
+    }
+    @include breakpoint(large) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    @include breakpoint(xlarge) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+#simplecart table tbody input {
+    margin: auto;
+}
+
+#simplecart table tbody tr {
+    background-color: $white !important;
+    border-bottom: $border-light;
+}
+
+#simplecart input.cart-update {
+    border: none;
+    background: $white;
+    text-transform: lowercase;
+    padding: 0;
+    margin-bottom: .5rem;
+    @include anchor;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//GLOSSARY
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+body#gp {
+    background-color: lighten($warm-ash, 5%);
+}
+
+body#gp .tabs-content {
+    background-color: transparent;
+}
+
+#glossary-block,
+#glossary-block-v {
+    @include breakpoint(small) {
+        width: 100%;
+    }
+    @include breakpoint(medium) {
+        width: 1000px;
+        min-width: 1000px;
+    }
+}
+
+#glossary-block .tabs {
+    margin-bottom: .5rem;
+}
+
+#glossary-block-v .tabs {
+    margin-bottom: 0;
+    background: transparent;
+}
+
+#glossary-block .tabs .tabs-title {
+    padding: 0;
+}
+
+#glossary-block .tabs .tabs-title a,
+#glossary-block-v .tabs .tabs-title a {
+    padding: .25rem .5rem;
+    text-align: left;
+    color: $black;
+    background-color: transparent;
+    font-family: $bodoni-book;
+    font-size: 1rem;
+    border-bottom: 1px solid darken($warm-ash, 10%);
+    @include -motion-ui-defaults;
+    &:hover {
+        color: $black;
+        background: darken($warm-ash, 5%);
+    }
+}
+
+#glossary-block-v .tabs .tabs-title.is-active a {
+    background: darken($warm-ash, 20%);
+    color: $white;
+    border-bottom: transparent !important;
+}
+
+#glossary-block-v .tabs,
+#glossary-block-v .tabs-panel,
+#glossary-block-v .tabs-content {
+    border: none;
+    padding: 0;
+}
+
+#glossary-block button,
+#glossary-block-v button {
+    font-family: $bodoni-sc-book;
+    text-transform: lowercase;
+    padding: 0rem .52rem .25rem .52rem;
+    background: $warm-ash;
+    // margin: 0 .5rem .5rem 0;
+    // border-radius: 50%;
+    @include breakpoint(small) {
+        font-size: 1.25rem;
+        width: 2rem;
+        height: 2rem;
+    }
+    @include breakpoint(medium) {
+        font-size: 1.5rem;
+        width: 3rem;
+        height: 3rem;
+    }
+    @include breakpoint(large) {
+        font-size: 2rem;
+        width: 4rem;
+        height: 4rem;
+    }
+}
+
+button[disabled="true"] {
+    color: darken($warm-ash, 10%);
+}
+
+button:not([disabled="true"]) {
+    color: darken($warm-ash, 45%);
+    @include -motion-ui-defaults;
+    &:hover {
+        color: darken($warm-ash, 15%);
+        background: $white !important;
+    }
+}
+
+#glossary-block select,
+#glossary-block-v select {
+    height: 1.8rem;
+    margin-top: .5rem !important;
+    padding: 0 .5rem;
+    border: 1px solid darken($warm-ash, 10%);
+    background: transparent;
+    color: darken($warm-ash, 45%);
+    font-family: $bodoni-book;
+}
+
+#glossary-block h2,
+#glossary-block-v h2 {
+    padding-top: 1rem;
+    font-family: $bodoni-book;
+    @include breakpoint(medium) {
+        line-height: 1.5rem;
+    }
+    @include breakpoint(large) {
+        line-height: 2.5rem;
+    }
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//FOOTER
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+.footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: $white;
+    z-index: 1000;
+    @include breakpoint(small) {
+        display: none;
+    }
+    @include breakpoint(medium) {
+        display: none;
+    }
+    @include breakpoint(large) {
+        display: block;
+    }
+}
+
+.footer>.row {
+    margin: 0 !important;
+}
+
+.base-info {
+    padding: .5rem 2rem !important;
+    height: auto;
+    left: 0;
+    // border-top: $border-light;
+}
+
+.base-info a {
+    @include anchor;
+    padding: 0 !important;
+    width: 100px;
+    float: right;
+    padding-left: .5rem;
+}
+
+.base-info.copyright p {
+    text-align: left;
+}
+
+.base-info.social-nw-links p {
+    float: right;
+    display: inline;
+}
+
+.base-info p {
+    margin-bottom: 0;
+    font-family: $bodoni-sc-book;
+    font-size: 11px;
+    text-align: center;
+    letter-spacing: $standard-kerning;
+    line-height: 15px;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//SMOOTHSTATE
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+.m-scene .scene_element {
+    -webkit-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+    -webkit-transition-timing-function: ease-in;
+    transition-timing-function: ease-in;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.m-scene .scene_element--fadein {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+}
+
+.m-scene .scene_element--fadeinup {
+    -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp;
+}
+
+.m-scene .scene_element--fadeindown {
+    -webkit-animation-name: fadeInDown;
+    animation-name: fadeInDown;
+}
+
+.m-scene .scene_element--fadeinright {
+    -webkit-animation-name: fadeInRight;
+    animation-name: fadeInRight;
+}
+
+.m-scene.is-exiting .scene_element {
+    -webkit-animation-direction: alternate-reverse;
+    animation-direction: alternate-reverse;
+}
